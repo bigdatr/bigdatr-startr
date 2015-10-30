@@ -13,8 +13,19 @@ module.exports = yeoman.generators.Base.extend({
         var done = this.async();
 
         // Have Yeoman greet the user.
-        this.log(yosay(
-            'Welcome to the radical ' + chalk.magenta('BigdatrStartr') + ' generator!'
+        this.log(chalk.magenta('\n'
+            + "                    `:/+++:.                                     \n"
+            + "                   `++++++++-                                    \n"
+            + "    `://///////////++++++++++:-`     .--------------------------.\n"
+            + "    /+++++++++++++++++++++++/+++`    |        Welcome to        |\n"
+            + "    ++++++++++++++++++++++++:/++:    |      bigdatr startr!     |\n"
+            + "    +++++++++++++//+++++++++++++:    '--------------------------'\n"
+            + "    ++++++++++++/  /++++++++++++:                                \n"
+            + "    ++++++++++++/  /+++++/--++++:                                \n"
+            + "    ++++/``/++++/  /+++++- `++++:                                \n"
+            + "    ++++/  /++++/  /+++++- `++++:                                \n"
+            + "    ++++/  /++++/  /+++++- `++++:                                \n"
+            + "    `````  ``````  ``````   ````                                 \n"
         ));
 
         this.prompt(getPrompts(this), function (props) {
