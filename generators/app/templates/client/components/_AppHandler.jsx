@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router';
+
 export default (props) => {
     return <div>
         <h1><%= name %></h1>
-        <a href="/">Main Page</a>
-        <a href="/other">Other Page</a>
+        <Link to="/">Main Page</Link>
+        <Link to="/other">Other Page</Link>
         {props.children}
     </div>
 }

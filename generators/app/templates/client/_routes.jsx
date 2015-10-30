@@ -6,7 +6,6 @@ import ErrorHandler from '<%= name %>/client/components/ErrorHandler';
 import MainPage from '<%= name %>/client/components/MainPage';
 import OtherPage from '<%= name %>/client/components/OtherPage';
 
-
 var routes = (
     <Route component={AppHandler} path="/">
         <IndexRoute component={MainPage} />

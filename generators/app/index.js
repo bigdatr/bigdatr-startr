@@ -59,6 +59,11 @@ module.exports = yeoman.generators.Base.extend({
             copy('client/components/_OtherPage.jsx',    MODULE_PATH + '/client/components/OtherPage.jsx');
 
             //
+            // Styles Files
+            copy('client/sass/_styles.scss',            MODULE_PATH + '/client/sass/styles.scss');
+            copy('client/sass/__config.scss',            MODULE_PATH + '/client/sass/_config.scss');
+
+            //
             // Public Files
             copy('public/_index.html',                  MODULE_PATH + '/public/index.html');
             copy('public/_robots.txt',                  MODULE_PATH + '/public/robots.txt');

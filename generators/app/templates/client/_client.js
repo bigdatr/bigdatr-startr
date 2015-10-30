@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 
 import rootReducer from '<%= name %>/client/reducers';
 import routes from '<%= name %>/client/routes';
+import clientStyles from '<%= name %>/client/sass/styles.scss';
 
 var developerToolsComponent;
 var createApplicationStore;

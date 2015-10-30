@@ -1,0 +1,25 @@
+@import '~bruce/bruce';
+@import 'config';
+@include bruce-reset();
+
+body {
+    margin: 5rem;
+    line-height: 1.8;
+    color: grey(20);
+    font-weight: 100;
+    font-family: Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+a {
+    color: color('blue');
+    margin-right: .25rem;
+
+    &:visited {
+        color: color('purple');
+    }
+}
