@@ -1,16 +1,12 @@
 
-
-// Routers
-
 import elephasConfig from './elephasConfig';
-import elephas from 'elephas/lib/framework')(elephasConfig;
-
 import webpack from 'webpack';
-import webpackConfig from '../../../../webpack.config.js';
-
+import webpackConfig from '../../../webpack.config.js';
 import fs from 'fs';
+import express from 'express';
 
-const indexHTML = fs.readFileSync('./src/<%= name %>/public/index.html');
+var elephas = require('elephas/lib/framework')(elephasConfig);
+const indexHTML = fs.readFileSync('./src/rad/public/index.html');
 
 elephas.createServer({
     beforeMiddleware: (done, app) => {
@@ -31,15 +27,20 @@ elephas.createServer({
         return done();
     },
     afterRoutes: (done, app) => {
-        app.use('*', function(req, res) {
-            res.setHeader('Content-Type', 'text/html');
-            return res.end(indexHTML);
+
+        // Simple Static
+        app.use('/', express.static('src/<%= name %>/public'));
+
+        // General Errors
+        app.use((err, req, res, next) => {
+            console.error(err);
+            return res.status(500).end(indexHTML);
         });
 
-        app.use(function(err, req, res, next) {
-            var status = err.status || 500;
-            console.error(err.stack);
-            return res.status(status).send(err);
+        // General 404's
+        app.use('*', (req, res) => {
+            res.setHeader('Content-Type', 'text/html');
+            return res.status(404).end(indexHTML);
         });
 
         return done();

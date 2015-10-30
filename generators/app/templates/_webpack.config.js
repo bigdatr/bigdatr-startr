@@ -10,14 +10,15 @@ var csswring = require('csswring');
 
 
 
-var MAIN_PATH = './src/<%= name %>/<%= name %>.js';
+var SRC = './src/<%= name %>/client/client.js';
+var DEST = './src/<%= name %>/client/<%= name %>.js';
 
 //
 // Loaders
 //
 var JS_LOADER = {
     test: /\.jsx?$/,
-    exclude: /node_modules/,
+    exclude: /node_modules\/(?!rad)/,
     loaders: ['babel']
 };
 var JSON_LOADER = {
@@ -42,10 +43,10 @@ var development = {
     cache: true,
     entry: [
         'webpack-hot-middleware/client?http://0.0.0.0:3000',
-        MAIN_PATH
+        SRC
     ],
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, DEST),
         filename: '<%= name %>.js',
         publicPath: '/'
     },
@@ -58,7 +59,7 @@ var development = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin({'process.env': {NODE_ENV: 'development'}})
+        new webpack.DefinePlugin({'process.env': {NODE_ENV: JSON.stringify(process.env.NODE_ENV || "development")}})
     ],
     module: {
         loaders: [
@@ -95,14 +96,14 @@ var development = {
 var production = create(development, {
     devtool: undefined,
     cache: false,
-    entry: MAIN_PATH,
+    entry: SRC,
     plugins: [
         new webpack.BannerPlugin('"use strict";', {raw: true}),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.UglifyJsPlugin(),
-        new webpack.DefinePlugin({'process.env': {NODE_ENV: JSON.stringify('production')}}),
+        new webpack.DefinePlugin({'process.env': {NODE_ENV: process.env.NODE_ENV || JSON.stringify('production')}}),
         new ExtractTextPlugin("[name].css")
     ],
     module: {

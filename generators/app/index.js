@@ -37,7 +37,31 @@ module.exports = yeoman.generators.Base.extend({
 
         projectfiles: function() {
             var copy = copyFiles.bind(this);
-            copy('server/_index.js',  'index.js');
+
+            var MODULE_PATH = 'src/' + this.props.name
+
+            //
+            // Server
+            copy('server/_index.js',                    'index.js');
+            copy('_modulePackage.json',                 MODULE_PATH + '/package.json');
+            copy('server/_server.js',                   MODULE_PATH + '/server/server.js');
+            copy('server/_elephasConfig.js',            MODULE_PATH + '/server/elephasConfig.js');
+            copy('server/_exampleRoutes--routes.js',    MODULE_PATH + '/server/exampleRoutes--routes.js');
+
+            //
+            // Client Files
+            copy('client/_client.js',                   MODULE_PATH + '/client/client.js');
+            copy('client/_reducers.js',                 MODULE_PATH + '/client/reducers.js');
+            copy('client/_routes.jsx',                  MODULE_PATH + '/client/routes.jsx');
+            copy('client/components/_AppHandler.jsx',   MODULE_PATH + '/client/components/AppHandler.jsx');
+            copy('client/components/_ErrorHandler.jsx', MODULE_PATH + '/client/components/ErrorHandler.jsx');
+            copy('client/components/_MainPage.jsx',     MODULE_PATH + '/client/components/MainPage.jsx');
+            copy('client/components/_OtherPage.jsx',    MODULE_PATH + '/client/components/OtherPage.jsx');
+
+            //
+            // Public Files
+            copy('public/_index.html',                  MODULE_PATH + '/public/index.html');
+            copy('public/_robots.txt',                  MODULE_PATH + '/public/robots.txt');
         }
     },
 
