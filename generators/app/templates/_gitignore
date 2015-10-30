@@ -1,0 +1,17 @@
+.lock.pid
+.DS_STORE
+stats.json
+node_modules/
+.sass-cache/
+
+*.orig
+*.mp4
+*.log
+*.map
+tmp/*
+*.sublime-*
+
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+
+
