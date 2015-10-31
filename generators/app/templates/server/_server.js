@@ -6,7 +6,7 @@ import fs from 'fs';
 import express from 'express';
 
 var elephas = require('elephas/lib/framework')(elephasConfig);
-const indexHTML = fs.readFileSync('./src/rad/public/index.html');
+const indexHTML = fs.readFileSync('./src/<%= name%>/public/index.html');
 
 elephas.createServer({
     beforeMiddleware: (done, app) => {

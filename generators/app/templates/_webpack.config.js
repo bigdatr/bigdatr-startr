@@ -18,7 +18,7 @@ var DEST = './src/<%= name %>/client/<%= name %>.js';
 //
 var JS_LOADER = {
     test: /\.jsx?$/,
-    exclude: /node_modules\/(?!rad)/,
+    exclude: /node_modules\/(?!<%= name %>)/,
     loaders: ['babel']
 };
 var JSON_LOADER = {
