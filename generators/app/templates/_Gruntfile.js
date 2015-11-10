@@ -3,7 +3,8 @@ var webpackConfig = require('./webpack.config.js');
 var CORE = {
     MAIN: [
         './node_modules/immutable/dist/immutable.min.js',
-        './node_modules/react/dist/react-with-addons.min.js'
+        './node_modules/react/dist/react-with-addons.min.js',
+        './node_modules/react-dom/dist/react-dom.min.js'
     ],
     POLYFILL: [
         './node_modules/babel-core/browser-polyfill.min.js'
@@ -30,8 +31,8 @@ module.exports = function(grunt) {
             },
             production: {
                 files: {
-                    'public/js/core.js':        CORE.MAIN,
-                    'public/js/core-compat.js': CORE.MAIN.concat(CORE.POLYFILL)
+                    'public/core.js':        CORE.MAIN,
+                    'public/core-compat.js': CORE.MAIN.concat(CORE.POLYFILL)
                 }
             }
         },
@@ -73,8 +74,8 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default',           ['nodemon']);
-    grunt.registerTask('build',             ['concat:production', 'webpack:production']);
-    grunt.registerTask('build:development', ['concat:development', 'webpack:development']);
+    grunt.registerTask('build',             ['concat', 'webpack:production']);
+    grunt.registerTask('build:development', ['concat', 'webpack:development']);
     grunt.registerTask('test',              ['karma:single']);
     grunt.registerTask('testing',           ['karma:development']);
 
