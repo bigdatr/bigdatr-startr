@@ -12,7 +12,8 @@
   "homepage": "https://github.com/<%= username %>/<%= name %>",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "start": "node index"
   },
   "author": [],
   "private": true,
