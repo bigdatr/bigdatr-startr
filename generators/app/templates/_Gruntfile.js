@@ -31,8 +31,8 @@ module.exports = function(grunt) {
             },
             production: {
                 files: {
-                    'public/core.js':        CORE.MAIN,
-                    'public/core-compat.js': CORE.MAIN.concat(CORE.POLYFILL)
+                    './src/<%= name %>/public/core.js':        CORE.MAIN,
+                    './src/<%= name %>/public/core-compat.js': CORE.MAIN.concat(CORE.POLYFILL)
                 }
             }
         },
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                     watchedExtensions: ['js', 'json'],
                     ignore: ['node_modules/**', 'client/**', 'public/**', 'Gruntfile.js'],
                     env: {
-                        PORT: process.env['<%= name.replace(/\W/,"_").toUpperCase() %>_PORT'] || 3000,
+                        PORT: process.env['<%= nameConstant %>_PORT'] || 3000,
                         BABEL_ENV: 'development'
                     },
                     callback: function(nodemon) {

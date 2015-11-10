@@ -6,7 +6,7 @@ var elephas_config = {
     static_root_path: __dirname + '/',
     httpsOnly: false,
     server: {
-        port: process.env['<%= name.replace(/\W/,"_").toUpperCase() %>_PORT'] || 3000,
+        port: process.env['<%= nameConstant %>_PORT'] || 3000,
     },
     csp: false
 };

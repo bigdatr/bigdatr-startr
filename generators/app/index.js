@@ -30,6 +30,7 @@ module.exports = yeoman.generators.Base.extend({
 
         this.prompt(getPrompts(this), function (props) {
             this.props = props;
+            this.props.nameConstant = props.name.replace(/\W/,"_").toUpperCase();
             done();
         }.bind(this));
     },
@@ -38,6 +39,7 @@ module.exports = yeoman.generators.Base.extend({
         app: function() {
             var copy = copyFiles.bind(this);
             copy('_editorconfig',       '.editorconfig');
+            copy('_env',                '.env');
             copy('_eslintrc',           '.eslintrc');
             copy('_gitignore',          '.gitignore');
             copy('_Gruntfile.js',       'Gruntfile.js');
