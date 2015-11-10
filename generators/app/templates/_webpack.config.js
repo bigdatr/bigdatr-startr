@@ -11,7 +11,7 @@ var csswring = require('csswring');
 
 
 var SRC = './src/<%= name %>/client/client.js';
-var DEST = './src/<%= name %>/client/<%= name %>.js';
+var DEST = './public/';
 
 //
 // Loaders
@@ -98,7 +98,6 @@ var production = create(development, {
     cache: false,
     entry: SRC,
     plugins: [
-        new webpack.BannerPlugin('"use strict";', {raw: true}),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
