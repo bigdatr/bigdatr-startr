@@ -2,6 +2,7 @@
 .DS_STORE
 stats.json
 node_modules/
+.env
 .sass-cache/
 
 *.orig
