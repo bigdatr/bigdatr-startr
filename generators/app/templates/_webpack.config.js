@@ -11,7 +11,7 @@ var csswring = require('csswring');
 
 
 var SRC = './src/<%= name %>/client/client.js';
-var DEST = './public/';
+var DEST = './src/<%= name %>/public/';
 
 //
 // Loaders
@@ -126,6 +126,7 @@ var production = create(development, {
     externals: {
         react: 'React',
         'react/addons': 'React',
+        'react-dom': 'ReactDOM',
         immutable: 'Immutable'
     }
 });
