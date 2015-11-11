@@ -1,12 +1,13 @@
-
 import elephasConfig from './elephasConfig';
+import express from 'express';
+import fs from 'fs';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import StaticIndex from './index.static.jsx';
 import webpack from 'webpack';
 import webpackConfig from '../../../webpack.config.js';
-import fs from 'fs';
-import express from 'express';
 
 var elephas = require('elephas/lib/framework')(elephasConfig);
-const indexHTML = fs.readFileSync('./src/<%= name%>/public/index.html');
 
 elephas.createServer({
     beforeMiddleware: (done, app) => {
@@ -37,10 +38,17 @@ elephas.createServer({
             return res.status(500).end(indexHTML);
         });
 
-        // General 404's
+        app.use('/api/*', (req, res) => {
+            return res.status(404).json({
+                error: 404,
+                message: 'API route not found.'
+            });
+        });
+
+        // The client code
         app.use('*', (req, res) => {
             res.setHeader('Content-Type', 'text/html');
-            return res.status(404).end(indexHTML);
+            return res.send('<!DOCTYPE html>' + ReactDOMServer.renderToString(<StaticIndex/>));
         });
 
         return done();
