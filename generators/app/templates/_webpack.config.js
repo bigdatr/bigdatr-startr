@@ -11,7 +11,7 @@ var csswring = require('csswring');
 
 
 var SRC = './src/<%= name %>/client/client.js';
-var DEST = './src/<%= name %>/client/<%= name %>.js';
+var DEST = './src/<%= name %>/public/';
 
 //
 // Loaders
@@ -98,13 +98,12 @@ var production = create(development, {
     cache: false,
     entry: SRC,
     plugins: [
-        new webpack.BannerPlugin('"use strict";', {raw: true}),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin({'process.env': {NODE_ENV: process.env.NODE_ENV || JSON.stringify('production')}}),
-        new ExtractTextPlugin("[name].css")
+        new ExtractTextPlugin("<%= name %>.css")
     ],
     module: {
         loaders: [
@@ -127,6 +126,7 @@ var production = create(development, {
     externals: {
         react: 'React',
         'react/addons': 'React',
+        'react-dom': 'ReactDOM',
         immutable: 'Immutable'
     }
 });

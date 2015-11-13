@@ -10,6 +10,12 @@ module.exports = function(props) {
         type    : 'input',
         name    : 'username',
         message : 'Your github user/organisation name'
+    },
+    {
+        type    : 'input',
+        name    : 'port',
+        message : 'What port would you like the development server to run on?',
+        default : 3000
     }
     ]
 }

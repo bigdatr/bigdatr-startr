@@ -3,7 +3,8 @@ var webpackConfig = require('./webpack.config.js');
 var CORE = {
     MAIN: [
         './node_modules/immutable/dist/immutable.min.js',
-        './node_modules/react/dist/react-with-addons.min.js'
+        './node_modules/react/dist/react-with-addons.min.js',
+        './node_modules/react-dom/dist/react-dom.min.js'
     ],
     POLYFILL: [
         './node_modules/babel-core/browser-polyfill.min.js'
@@ -30,8 +31,8 @@ module.exports = function(grunt) {
             },
             production: {
                 files: {
-                    'public/js/core.js':        CORE.MAIN,
-                    'public/js/core-compat.js': CORE.MAIN.concat(CORE.POLYFILL)
+                    './src/<%= name %>/public/core.js':        CORE.MAIN,
+                    './src/<%= name %>/public/core-compat.js': CORE.MAIN.concat(CORE.POLYFILL)
                 }
             }
         },
@@ -44,7 +45,7 @@ module.exports = function(grunt) {
                     watchedExtensions: ['js', 'json'],
                     ignore: ['node_modules/**', 'client/**', 'public/**', 'Gruntfile.js'],
                     env: {
-                        PORT: process.env['<%= name.replace(/\W/,"_").toUpperCase() %>_PORT'] || 3000,
+                        PORT: process.env['<%= nameConstant %>_PORT'] || 3000,
                         BABEL_ENV: 'development'
                     },
                     callback: function(nodemon) {
@@ -73,8 +74,8 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default',           ['nodemon']);
-    grunt.registerTask('build',             ['concat:production', 'webpack:production']);
-    grunt.registerTask('build:development', ['concat:development', 'webpack:development']);
+    grunt.registerTask('build',             ['concat', 'webpack:production']);
+    grunt.registerTask('build:development', ['concat', 'webpack:development']);
     grunt.registerTask('test',              ['karma:single']);
     grunt.registerTask('testing',           ['karma:development']);
 

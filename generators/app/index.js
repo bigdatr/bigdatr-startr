@@ -30,6 +30,7 @@ module.exports = yeoman.generators.Base.extend({
 
         this.prompt(getPrompts(this), function (props) {
             this.props = props;
+            this.props.nameConstant = props.name.replace(/\W/,"_").toUpperCase();
             done();
         }.bind(this));
     },
@@ -38,6 +39,7 @@ module.exports = yeoman.generators.Base.extend({
         app: function() {
             var copy = copyFiles.bind(this);
             copy('_editorconfig',       '.editorconfig');
+            copy('_env',                '.env');
             copy('_eslintrc',           '.eslintrc');
             copy('_gitignore',          '.gitignore');
             copy('_Gruntfile.js',       'Gruntfile.js');
@@ -58,6 +60,7 @@ module.exports = yeoman.generators.Base.extend({
             copy('server/_server.js',                   MODULE_PATH + '/server/server.js');
             copy('server/_elephasConfig.js',            MODULE_PATH + '/server/elephasConfig.js');
             copy('server/_exampleRoutes--routes.js',    MODULE_PATH + '/server/exampleRoutes--routes.js');
+            copy('server/_index.static.jsx',            MODULE_PATH + '/server/index.static.jsx');
 
             //
             // Client Files
@@ -76,7 +79,6 @@ module.exports = yeoman.generators.Base.extend({
 
             //
             // Public Files
-            copy('public/_index.html',                  MODULE_PATH + '/public/index.html');
             copy('public/_robots.txt',                  MODULE_PATH + '/public/robots.txt');
 
             //
