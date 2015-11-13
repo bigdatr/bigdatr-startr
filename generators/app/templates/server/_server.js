@@ -35,7 +35,7 @@ elephas.createServer({
         // General Errors
         app.use((err, req, res, next) => {
             console.error(err);
-            return res.status(500).end(indexHTML);
+            return res.status(500).end();
         });
 
         app.use('/api/*', (req, res) => {
