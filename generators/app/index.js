@@ -38,13 +38,14 @@ module.exports = yeoman.generators.Base.extend({
     writing: {
         app: function() {
             var copy = copyFiles.bind(this);
+            copy('_Gruntfile.js',       'Gruntfile.js');
+            copy('_README.md',          'README.md');
+            copy('_babelrc',            '.babelrc');
             copy('_editorconfig',       '.editorconfig');
             copy('_env',                '.env');
             copy('_eslintrc',           '.eslintrc');
             copy('_gitignore',          '.gitignore');
-            copy('_Gruntfile.js',       'Gruntfile.js');
             copy('_package.json',       'package.json');
-            copy('_README.md',          'README.md');
             copy('_webpack.config.js',  'webpack.config.js');
         },
 
