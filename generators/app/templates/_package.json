@@ -13,6 +13,8 @@
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
+    "preinstall": "npm uninstall <%= name %>"
+    "postinstall": "npm install <%= name %>",
     "start": "node index"
   },
   "author": [],
