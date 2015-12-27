@@ -13,8 +13,7 @@
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
-    "preinstall": "npm uninstall <%= name %>",
-    "postinstall": "npm install <%= name %>",
+    "preinstall": "rimraf ./node_modules/<%= name %>",
     "link": "cd src/<%= name %>/ && npm link && ../../ && npm link <%= name %>",
     "start": "node index"
   },
