@@ -14,7 +14,7 @@
   "scripts": {
     "test": "grunt test",
     "preinstall": "rimraf ./node_modules/<%= name %>",
-    "link": "cd src/<%= name %>/ && npm link && ../../ && npm link <%= name %>",
+    "link": "cd src/<%= name %>/ && npm link && cd ../../ && npm link <%= name %>",
     "start": "node index"
   },
   "author": [],
