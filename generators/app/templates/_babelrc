@@ -3,6 +3,10 @@
         "react",
         "es2015"
     ],
+    "plugins": [
+        "transform-strict-mode",
+        "transform-class-properties"
+    ],
     "env": {
         "development": {
             "plugins": [
@@ -20,4 +24,3 @@
         }
     }
 }
-
