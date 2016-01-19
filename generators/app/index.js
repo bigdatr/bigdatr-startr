@@ -67,6 +67,8 @@ module.exports = yeoman.generators.Base.extend({
             //
             // Client Files
             copy('client/_client.js',                   MODULE_PATH + '/client/client.js');
+            copy('client/_devtools.js',                 MODULE_PATH + '/client/devtools.js');
+            copy('client/_store.js',                    MODULE_PATH + '/client/store.js');
             copy('client/_reducers.js',                 MODULE_PATH + '/client/reducers.js');
             copy('client/_routes.jsx',                  MODULE_PATH + '/client/routes.jsx');
             copy('client/components/_AppHandler.jsx',   MODULE_PATH + '/client/components/AppHandler.jsx');
@@ -95,5 +97,8 @@ module.exports = yeoman.generators.Base.extend({
         this.installDependencies({
             bower: false
         });
+    },
+    end: function () {
+        this.spawnCommand('npm', ['run', 'link']);
     }
 });
