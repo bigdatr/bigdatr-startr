@@ -47,7 +47,6 @@ module.exports = yeoman.generators.Base.extend({
             copy('_gitignore',          '.gitignore');
             copy('_package.json',       'package.json');
             copy('_webpack.config.js',  'webpack.config.js');
-            copy('bin/preInstall.sh',  '/bin/preInstall.sh');
         },
 
         projectfiles: function() {
