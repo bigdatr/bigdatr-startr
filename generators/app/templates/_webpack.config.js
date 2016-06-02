@@ -51,9 +51,7 @@ var development = {
         publicPath: '/'
     },
     resolve: {
-        alias: {
-            react: path.join(__dirname, 'node_modules', 'react')
-        },
+        fallback: path.resolve('./src'),
         extensions: ['', '.js', '.jsx']
     },
     plugins: [
@@ -102,7 +100,7 @@ var production = create(development, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.UglifyJsPlugin(),
-        new webpack.DefinePlugin({'process.env': {NODE_ENV: process.env.NODE_ENV || JSON.stringify('production')}}),
+        new webpack.DefinePlugin({'process.env': {NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")}}),
         new ExtractTextPlugin("<%= name %>.css")
     ],
     module: {

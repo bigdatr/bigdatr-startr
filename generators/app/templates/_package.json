@@ -13,14 +13,14 @@
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
-    "preinstall": "rimraf ./node_modules/<%= name %>",
-    "link": "cd src/<%= name %>/ && npm link && cd ../../ && npm link <%= name %>",
+    "build": "export NODE_ENV='production' && grunt build",
     "start": "node index"
   },
   "author": [],
   "private": true,
   "license": "None",
   "dependencies": {
+    "app-module-path": "1.1.0",
     "babel-core": "6.9.1",
     "babel-loader": "6.2.4",
     "babel-plugin-react-transform": "2.0.2",
