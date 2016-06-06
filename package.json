@@ -1,6 +1,6 @@
 {
   "name": "generator-bigdatr-startr",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -10,8 +10,8 @@
     "email": "allanhortle@gmail.com",
     "url": "https://github.com/allanhortle"
   },
-  "bin" : {
-    "bds" : "./bds.sh"
+  "bin": {
+    "bds": "./bds.sh"
   },
   "scripts": {
     "test": "mocha"
