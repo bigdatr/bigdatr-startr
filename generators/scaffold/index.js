@@ -6,10 +6,8 @@ function copyFiles(from, to) {
     this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), this.props);
 }
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
     prompting: function () {
-        var done = this.async();
-
         return this.prompt(getPrompts(this)).then(function (props) {
             this.props = props;
             this.props.nameConstant = props.name.replace(/\W/,"_").toUpperCase();

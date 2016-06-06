@@ -1,14 +1,10 @@
 require('es6-promise').polyfill();
 var webpack = require('webpack');
 var path = require('path');
-var create = require('lodash/object/create');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
 var mqpacker = require('css-mqpacker');
 var csswring = require('csswring');
-
-
-
 
 var SRC = './src/<%= name %>/client/client.js';
 var DEST = './src/<%= name %>/public/';
@@ -91,7 +87,7 @@ var development = {
 // Minifies css and packs medai queries together
 // Uses the external builds for core libraries
 //
-var production = create(development, {
+var production = Object.assign({}, development, {
     devtool: undefined,
     cache: false,
     entry: SRC,

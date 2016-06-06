@@ -10,6 +10,9 @@
     "email": "allanhortle@gmail.com",
     "url": "https://github.com/allanhortle"
   },
+  "bin" : {
+    "bds" : "./bds.sh"
+  },
   "scripts": {
     "test": "mocha"
   },
