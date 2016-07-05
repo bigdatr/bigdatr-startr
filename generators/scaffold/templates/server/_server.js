@@ -4,9 +4,6 @@ import fs from 'fs';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import StaticIndex from './index.static.jsx';
-import webpack from 'webpack';
-import webpackConfig from '../../../webpack.config.js';
-
 var elephas = require('elephas/lib/framework')(elephasConfig);
 
 elephas.createServer({
@@ -15,6 +12,8 @@ elephas.createServer({
         // Webpack hot module replacement
         // Make sure this stays behind a dev feature flag
         if (process.env.NODE_ENV !== 'production') {
+            var webpack = require('webpack');
+            var webpackConfig = require('../../../webpack.config.js');
             var compiler = webpack(webpackConfig.development);
 
             app.use(require('webpack-dev-middleware')(compiler, {
