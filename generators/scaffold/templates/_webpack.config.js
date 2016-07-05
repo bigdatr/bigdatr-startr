@@ -8,6 +8,7 @@ var csswring = require('csswring');
 
 var SRC = './src/<%= name %>/client/client.js';
 var DEST = './src/<%= name %>/public/';
+var PORT = process.env.<%= nameConstant =>_PORT || '3000';
 
 //
 // Loaders
@@ -38,7 +39,7 @@ var development = {
     devtool: 'source-map',
     cache: true,
     entry: [
-        'webpack-hot-middleware/client?http://0.0.0.0:3000',
+        'webpack-hot-middleware/client?http://0.0.0.0:' + PORT,
         SRC
     ],
     output: {
