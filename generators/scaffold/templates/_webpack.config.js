@@ -8,7 +8,7 @@ var csswring = require('csswring');
 
 var SRC = './src/<%= name %>/client/client.js';
 var DEST = './src/<%= name %>/public/';
-var PORT = process.env.<%= nameConstant =>_PORT || '3000';
+var PORT = process.env.<%= nameConstant %>_PORT || '3000';
 
 //
 // Loaders
