@@ -41,7 +41,6 @@ Generator.prototype.getInstance = function () {
         },
         writing:  function () {
             templateActions.map(function(file){
-                console.log(this.props);
                 this.fs.copyTpl(
                     this.templatePath(ejs.render(file.templatePath, this.props)),
                     this.destinationPath(ejs.render(file.destinationPath, this.props)),
