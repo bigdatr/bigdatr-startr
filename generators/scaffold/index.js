@@ -45,7 +45,6 @@ module.exports = yeoman.Base.extend({
             //
             // Client Files
             copy('client/_client.js',                   MODULE_PATH + '/client/client.js');
-            copy('client/_devtools.js',                 MODULE_PATH + '/client/devtools.js');
             copy('client/_store.js',                    MODULE_PATH + '/client/store.js');
             copy('client/_reducers.js',                 MODULE_PATH + '/client/reducers.js');
             copy('client/_routes.jsx',                  MODULE_PATH + '/client/routes.jsx');
@@ -66,7 +65,7 @@ module.exports = yeoman.Base.extend({
             //
             // Tests
             copy('test/_karma.conf.js',                 'test/karma.conf.js');
-            copy('test/_exampleTest-test.js',                MODULE_PATH + '/client/components/exampleTest-test.js');
+            copy('test/_exampleTest-test.js',           MODULE_PATH + '/client/components/exampleTest-test.js');
 
         }
     },

@@ -47,7 +47,6 @@ Generator.prototype.getInstance = function () {
                     this.props
                 )
             }.bind(this))
-            //this.log(this.props);
         },
         end:  function () { /* ... */  }
     });

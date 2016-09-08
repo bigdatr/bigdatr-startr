@@ -10,7 +10,7 @@ module.exports = function(config) {
         preprocessors: {
             '../src/**/*-test.js': ['webpack', 'sourcemap']
         },
-        reporters: ['mocha', 'html', 'coverage', 'junit'],
+        reporters: ['html', 'coverage', 'junit'],
         singleRun: true,
         autoWatch: false,
         autoWatchBatchDelay: 400,
