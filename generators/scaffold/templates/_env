@@ -2,4 +2,4 @@
 <%= nameConstant %>_PORT="<%= port %>"
 
 # Node Variables
-# NODE_ENV="production"
+NODE_ENV="development"
