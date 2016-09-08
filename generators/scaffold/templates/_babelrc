@@ -1,7 +1,6 @@
 {
     "presets": [
-        "react",
-        "es2015"
+        "blueflag"
     ],
     "plugins": [
         "transform-strict-mode",
@@ -15,9 +14,6 @@
                         "transform": "react-transform-hmr",
                         "imports": ["react"],
                         "locals": ["module"]
-                    }, {
-                        "transform": "react-transform-catch-errors",
-                        "imports": ["react", "redbox-react"]
                     }]
                 }]
             ]
