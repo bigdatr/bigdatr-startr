@@ -8,6 +8,9 @@ var elephas_config = {
     server: {
         port: process.env['<%= nameConstant %>_PORT'] || process.env.PORT || 3000,
     },
+    logger: {
+        level: 'info'
+    },
     csp: false
 };
 
