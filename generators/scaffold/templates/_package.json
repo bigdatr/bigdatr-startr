@@ -61,7 +61,6 @@
     "grunt": "1.0.1",
     "grunt-contrib-concat": "1.0.1",
     "grunt-karma": "2.0.0",
-    "grunt-nodemon": "0.4.2",
     "grunt-webpack": "1.0.18",
     "isparta-loader": "2.0.0",
     "jasmine-core": "2.5.2",

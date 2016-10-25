@@ -37,26 +37,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // Server Tasks
-        nodemon: {
-            dev: {
-                script: 'index.js',
-                options: {
-                    watchedExtensions: ['js', 'json'],
-                    ignore: ['node_modules/**', 'client/**', 'public/**', 'Gruntfile.js'],
-                    env: {
-                        PORT: process.env['<%= nameConstant %>_PORT'] || 3000,
-                        BABEL_ENV: 'development'
-                    },
-                    callback: function(nodemon) {
-                        nodemon.on('log', function(event) {
-                            console.log(event.colour);
-                        });
-                    }
-                }
-            }
-        },
-
         karma: {
             options: {
                 configFile: 'test/karma.conf.js'
@@ -73,7 +53,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default',           ['nodemon']);
     grunt.registerTask('build',             ['concat', 'webpack:production']);
     grunt.registerTask('build:development', ['concat', 'webpack:development']);
     grunt.registerTask('test',              ['karma:single']);
