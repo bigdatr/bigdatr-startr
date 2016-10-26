@@ -2,7 +2,7 @@
 var yeoman = require('yeoman-generator');
 var getPrompts = require('./constants/prompts');
 
-function copyFiles(from, to) {
+function copyTpl(from, to) {
     this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), this.props);
 }
 
@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
 
     writing: {
         app: function() {
-            var copy = copyFiles.bind(this);
+            var copy = copyTpl.bind(this);
             copy('_Gruntfile.js',       'Gruntfile.js');
             copy('_README.md',          'README.md');
             copy('_babelrc',            '.babelrc');
@@ -29,7 +29,7 @@ module.exports = yeoman.Base.extend({
         },
 
         projectfiles: function() {
-            var copy = copyFiles.bind(this);
+            var copy = copyTpl.bind(this);
 
             var MODULE_PATH = 'src/' + this.props.name
 
@@ -61,6 +61,7 @@ module.exports = yeoman.Base.extend({
             //
             // Public Files
             copy('public/_robots.txt',                  MODULE_PATH + '/public/robots.txt');
+            this.fs.copy(this.templatePath('public/_favicon.ico'), this.destinationPath(MODULE_PATH + '/public/favicon.ico'), this.props);
 
             //
             // Tests
