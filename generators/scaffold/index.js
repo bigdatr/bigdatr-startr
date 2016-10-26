@@ -45,6 +45,7 @@ module.exports = yeoman.Base.extend({
             //
             // Client Files
             copy('client/_client.js',                   MODULE_PATH + '/client/client.js');
+            copy('client/_EntitySchema.js', MODULE_PATH + '/client/EntitySchema.js');
             copy('client/_store.js',                    MODULE_PATH + '/client/store.js');
             copy('client/_reducers.js',                 MODULE_PATH + '/client/reducers.js');
             copy('client/_routes.jsx',                  MODULE_PATH + '/client/routes.jsx');
