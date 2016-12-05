@@ -110,8 +110,8 @@ A generator for serverless services.
 |---------------------------|-------------------------------------------------------------------------------|
 | `yarn run ava`            | Run ava tests                                                                 |
 | `yarn run build`          | Runs a production build of the service in preparation for deployment          |
-| `yarn run dev`            | Starts up serverles-offline for local development                             |
-| `yarn run dev-nocache`    | Starts up serverless-offline with --skipCacheInvalidation flag and nodemon to avoid [this bug](https://github.com/dherault/serverless-offline/issues/165)|
+| `yarn run dev`            | Starts up serverless-offline for local development                            |
+| `yarn run dev-nocache`    | Starts up serverless-offline with `--skipCacheInvalidation` flag and nodemon to avoid [this bug](https://github.com/dherault/serverless-offline/issues/165)|
 | `yarn run deploy`         | Deploys to lambda                                                             |
 | `yarn run docs`           | Builds out documentation using jsdoc/jsdonk                                   |
 | `yarn run flow`           | Runs a flow check of the source code                                          |
