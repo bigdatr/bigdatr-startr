@@ -87,3 +87,36 @@ The website is now ready to be deployed and as long as the environment variables
 | `yarn run test-all`       | Runs all tests, flow, and linting                                             |
 | `yarn run watch`          | Boots up webpack-dev-server for devving                                       |
 
+
+
+### Serverless [λ]
+
+A generator for serverless services.
+
+#### Features
+
+- Uses [serverless](http://serverless.com/) to manage lambda functions
+- Has [serverless-offline](https://github.com/dherault/serverless-offline) for local development
+- Custom bundler script to ensure that only required files are deployed to lambda
+- Uses local version of serverless so that it doesn't have to be installed globally and for reproduceable builds across multiple enviroments.
+- Babel transpilation so you can do fun es2015 stuff.
+- Testing with [ava](https://github.com/avajs/ava)
+- Test coverage with [nyc](https://github.com/istanbuljs/nyc)
+- docs with [jsdonk](https://github.com/dxinteractive/jsdonk)
+
+#### Tasks
+
+| Command                   | Description                                                                   |
+|---------------------------|-------------------------------------------------------------------------------|
+| `yarn run ava`            | Run ava tests                                                                 |
+| `yarn run build`          | Runs a production build of the service in preparation for deployment          |
+| `yarn run dev`            | Starts up serverles-offline for local development                             |
+| `yarn run dev-nocache`    | Starts up serverless-offline with --skipCacheInvalidation flag and nodemon to avoid [this bug](https://github.com/dherault/serverless-offline/issues/165)|
+| `yarn run deploy`         | Deploys to lambda                                                             |
+| `yarn run docs`           | Builds out documentation using jsdoc/jsdonk                                   |
+| `yarn run flow`           | Runs a flow check of the source code                                          |
+| `yarn run lint`           | Runs eslint on source code                                                    |
+| `yarn run lint-fix`       | Attempts to fix eslint errors                                                 |
+| `yarn run test`           | Runs tests and coverage checks                                                |
+| `yarn run test-all`       | Runs all tests, flow, and linting                                             |
+| `yarn run watch`          | Boots up webpack-dev-server for devving                                       |
