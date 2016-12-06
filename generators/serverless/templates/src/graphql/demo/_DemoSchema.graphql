@@ -1,0 +1,5 @@
+type Demo {
+    id: ID
+    field: String
+    int: Int
+}

@@ -1,0 +1,2 @@
+SERVERLESS_STAGE=dev
+SERVERLESS_REGION=ap-southeast-2

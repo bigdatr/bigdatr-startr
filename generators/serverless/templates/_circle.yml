@@ -1,0 +1,28 @@
+machine:
+    pre:
+        - mkdir ~/.yarn-cache
+    node:
+        version: 4.3.2
+    environment:
+        YARN_VERSION: 0.17.10
+        PATH: "${PATH}:${HOME}/.yarn/bin"
+
+dependencies:
+    pre:
+        - |
+            if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
+                curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+            fi
+    cache_directories:
+        - ~/.yarn
+        - ~/.yarn-cache
+    override:
+        - yarn install --ignore-engines # ignore engines is temporary until serverless offline 3.5.5 is released
+test:
+    override:
+        - yarn run test-all
+deployment:
+    master:
+        branch: master
+        commands:
+            - yarn run deploy
