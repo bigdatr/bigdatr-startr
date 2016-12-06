@@ -1,0 +1,11 @@
+{
+    "presets": ["blueflag"],
+    "ignore": ["./dist"],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+}
