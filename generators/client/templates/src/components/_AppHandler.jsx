@@ -8,7 +8,7 @@ export default (props) => {
     <% if(cognito) { %>
     return <LoginForm
         location={props.location}
-        exclude={['/auth', '/auth/signup']}
+        exclude={['/logout', '/signup']}
     >
         <h1><%= name %></h1>
         {props.children}
