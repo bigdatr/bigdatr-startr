@@ -9,7 +9,10 @@ const routeHandlers = require('./routeHandlers');
 var routes = (
     <Route component={routeHandlers.AppHandler} path="/">
         <IndexRoute component={routeHandlers.MainPage} />
-        <Route path="other" component={routeHandlers.OtherPage} />
+        <% if(cognito) { %>
+        <Route path="signup" component={routeHandlers.SignUpPage} />
+        <Route path="logout" component={routeHandlers.LogoutPage} />
+        <% } %>
         <Route path="*" component={routeHandlers.ErrorHandler}/>
     </Route>
 );

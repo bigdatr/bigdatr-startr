@@ -1,6 +1,18 @@
 require('dotenv').config();
 require('babel-register');
 
+var env = [
+    <% if(cognito) { %>'AWS_REGION',
+    'AWS_IDENTITY_POOL_ID',
+    'AWS_USER_POOL_ID',
+    'AWS_USER_POOL_ARN',
+    'AWS_USER_POOL_CLIENT_ID'<% } %>
+].reduce(function(rr, ii) {
+    rr[ii] = process.env[ii];
+    return rr;
+}, {});
+
+
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -29,7 +41,7 @@ if(process.env.NODE_ENV === 'production') {
 
 const JS_LOADER = {
     test: /\.jsx?$/,
-    exclude: ['node_modules'],
+    include: path.resolve('./src'),
     loaders: ['babel']
 };
 
@@ -69,9 +81,9 @@ const development = {
         modulesDirectories: ['src', 'node_modules']
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || "development")
-        }),
+        new webpack.DefinePlugin({'process.env': JSON.stringify(Object.assign({}, env, {
+            NODE_ENV: "development"
+        }))}),
         // Don't run prerender if watching
         (watching ? null : new StaticSiteGeneratorPlugin('__prerender', paths))
     ].filter(plugin => !!plugin),
@@ -87,7 +99,7 @@ const development = {
             }
         ]
     },
-    postcss : function() {
+    postcss: function() {
         return [autoprefixer({browsers : ['ie >= 9', 'last 2 versions']})]
     },
     devServer : {
