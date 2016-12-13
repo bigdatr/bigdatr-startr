@@ -44,8 +44,7 @@ export const graphqlApi = (httpEvent, lambdaContext, callback) => {
         variables || {}
     ).then((result) => {
         callback(null, Object.assign({}, baseResponse, {
-            body: result,
-            statusCode: result.errors ? 400 : 200
+            body: result
         }));
     }).catch(err => {
         callback(null, Object.assign({}, baseResponse, {
