@@ -4,7 +4,7 @@ import {Resolver, Schema} from './graphql';
 import {graphql} from 'graphql';
 import {locatedError, formatError} from 'graphql/error';
 
-export const graphqlApi = (httpEvent, lambdaContext, callback) => {
+export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaContext, callback: AWSLambdaCallback) => {
     const baseResponse = {
         statusCode: 200,
         headers: {
