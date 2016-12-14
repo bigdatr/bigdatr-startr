@@ -13,7 +13,7 @@
     "dev": "node -r dotenv/config ./node_modules/.bin/serverless offline --port <%= port %>",
     "dev-nocache": "nodemon -r dotenv/config ./node_modules/.bin/serverless offline --skipCacheInvalidation",
     "docs": "jsdoc -c jsdoc-config.json",
-    "flow": "flow check --all",
+    "flow": "flow check",
     "lint": "eslint src/**/*.jsx src/**/*.js",
     "lint-fix": "eslint src/**/*.jsx src/**/*.js --fix",
     "test": "NODE_ENV=test nyc --report-dir=./coverage ava && yarn run check-coverage",
