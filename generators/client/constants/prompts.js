@@ -2,6 +2,13 @@ const path = require('path');
 module.exports = function(props) {
     return [
         {
+            type: 'confirm',
+            name: 'cognito',
+            message: 'Do you want cognito?',
+            default: true
+        },
+
+        {
             type: 'input',
             name: 'name',
             message: 'What is your project name?',
@@ -26,9 +33,9 @@ module.exports = function(props) {
             default: 'UNLICENSED'
         },
         {
-            type: 'input',
+            type: 'confirm',
             name: 'private',
-            message: 'Is this a private project? (true/false)',
+            message: 'Is this a private project?',
             default: true
         },
         {
@@ -55,5 +62,6 @@ module.exports = function(props) {
             message: 'What is the S3 bucket that the site will be deployed to? (leave blank if you don\'t know)',
             default: ''
         }
+
     ];
 }
