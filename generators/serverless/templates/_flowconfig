@@ -1,5 +1,17 @@
 [options]
+all=true
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=..
 module.system.node.resolve_dirname=src
 
+[include]
+.*/src/.*
+
+[ignore]
+.*/node_modules/.*
+.*/coverage/.*
+.*/.nyc_output/.*
+.*/scripts/.*
+
+[libs]
+./interfaces/
