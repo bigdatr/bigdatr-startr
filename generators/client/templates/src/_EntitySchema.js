@@ -1,22 +1,11 @@
-import {Schema, arrayOf} from 'redux-blueflag';
+/* @flow */
 
-//
-// Example Schema
-//
-var DemoSchema = new Schema('demo');
-var OtherSchema = new Schema('other', {idAttribute: 'name'});
+import {Schema} from 'redux-blueflag';
 
-DemoSchema.define({
-    otherList: arrayOf(OtherSchema)
-});
+var UserSchema = new Schema('user', {idAttribute: 'id'});
 
 const EntitySchema = {
-    otherList: arrayOf(OtherSchema),
-    demo: DemoSchema,
+    user: UserSchema
 };
-
-
-// const EntitySchema = {
-// };
 
 export default EntitySchema;

@@ -1,3 +1,5 @@
+/* @flow */
+
 import thunk from 'redux-thunk';
 import reducers from '<%= name %>/reducers';
 import {compose, createStore, applyMiddleware} from 'redux';

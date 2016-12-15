@@ -2,13 +2,6 @@ const path = require('path');
 module.exports = function(props) {
     return [
         {
-            type: 'confirm',
-            name: 'cognito',
-            message: 'Do you want cognito?',
-            default: true
-        },
-
-        {
             type: 'input',
             name: 'name',
             message: 'What is your project name?',
@@ -61,6 +54,33 @@ module.exports = function(props) {
             name: 's3Bucket',
             message: 'What is the S3 bucket that the site will be deployed to? (leave blank if you don\'t know)',
             default: ''
+        },
+        {
+            type: 'confirm',
+            name: 'cognito',
+            message: 'Do you want cognito? (note that prerendering is not compatible with cognito)',
+            default: true
+        },
+        {
+            type: 'confirm',
+            name: 'prerender',
+            message: 'Do you want prerendering? (note that prerendering is not compatible with cognito)',
+            default: false
+        },
+        {
+            type: 'confirm',
+            name: 'segment',
+            message: 'Would you like segment tracking?',
+            default: true
+        },
+        {
+            type: 'input',
+            name: 'segmentID',
+            message: 'What is your segment tracking account ID (leave blank if you don\'t know)',
+            default: '',
+            when: function(answers) {
+                return answers.segment; // Only ask this if user wanted segment
+            }
         }
 
     ];

@@ -1,6 +1,7 @@
 {
     "extends": [
         "eslint-config-blueflag",
-        "eslint-config-blueflag/flow.js"
+        "eslint-config-blueflag/react",
+        "eslint-config-blueflag/flow"
     ]
 }

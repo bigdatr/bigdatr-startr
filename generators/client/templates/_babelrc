@@ -1,5 +1,13 @@
 {
-    "presets": ["blueflag"],
+    "presets": [
+        "es2017",
+        "stage-3",
+        "blueflag"
+    ],
+    "plugins": [
+        "transform-runtime",
+        "transform-class-properties"
+    ],
     "ignore": ["./dist"],
     "env": {
       "test": {

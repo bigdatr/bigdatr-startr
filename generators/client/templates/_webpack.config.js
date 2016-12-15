@@ -2,11 +2,13 @@ require('dotenv').config();
 require('babel-register');
 
 var env = [
-    <% if(cognito) { %>'AWS_REGION',
+    'AWS_REGION',
     'AWS_IDENTITY_POOL_ID',
     'AWS_USER_POOL_ID',
     'AWS_USER_POOL_ARN',
-    'AWS_USER_POOL_CLIENT_ID'<% } %>
+    'AWS_USER_POOL_CLIENT_ID',
+    '<%= nameConstant %>_GRAPHQL_SERVER',
+    '<%= nameConstant %>_SEGMENT_ID'
 ].reduce(function(rr, ii) {
     rr[ii] = process.env[ii];
     return rr;
@@ -66,6 +68,7 @@ const FILE_LOADER = {
 const development = {
     devtool: 'source-map',
     entry: Object.assign({}, {
+        // 'fetch': 'whatwg-fetch',
         [pkg.name]: './src/<%= name %>/client.js'
     }, watching ? {} : { // Don't have prerender entry if watching
         __prerender: './src/<%= name %>/prerender.js',
@@ -82,7 +85,7 @@ const development = {
     },
     plugins: [
         new webpack.DefinePlugin({'process.env': JSON.stringify(Object.assign({}, env, {
-            NODE_ENV: "development"
+            NODE_ENV: process.env.NODE_ENV || "development"
         }))}),
         // Don't run prerender if watching
         (watching ? null : new StaticSiteGeneratorPlugin('__prerender', paths))
@@ -105,7 +108,7 @@ const development = {
     devServer : {
         host: '0.0.0.0',
         publicPath : '/',
-        port: process.env.PORT || 3000,
+        port: process.env.<%= nameConstant %>_PORT || 3000,
         historyApiFallback: true
     }
 };
@@ -140,5 +143,4 @@ const production = Object.assign({}, development, {
         ]
     },
 });
-
 module.exports = process.env.NODE_ENV === 'production' ? production : development;
