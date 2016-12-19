@@ -55,6 +55,9 @@ module.exports = yeoman.Base.extend({
                 copy('src/graphql/_schemas.js',                 appRootPath + '/graphql/schemas.js');
                 copy('src/graphql/demo/_DemoResolver.js',       appRootPath + '/graphql/demo/DemoResolver.js');
                 copy('src/graphql/demo/_DemoSchema.graphql',    appRootPath + '/graphql/demo/DemoSchema.graphql');
+
+                copy('src/shared/models/_BaseModel.js',                 appRootPath + '/shared/models/BaseModel.js');
+                copy('src/graphql/types/Viewer/_ViewerModel.js',       appRootPath + '/graphql/types/Viewer/ViewerModel.js');
             }
 
 

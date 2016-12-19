@@ -4,7 +4,9 @@ import {Resolver, Schema} from './graphql';
 import {graphql} from 'graphql';
 import {locatedError, formatError} from 'graphql/error';
 
-export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaContext, callback: AWSLambdaCallback) => {
+import ViewerModel from 'chekt-api/graphql/types/Viewer/ViewerModel';
+
+export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaContext, callback: AWSLambdaCallback): void => {
     const baseResponse = {
         statusCode: 200,
         headers: {
@@ -34,7 +36,7 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
     const _variables = typeof variables === 'string' ? JSON.parse(variables) : {};
 
     const context = {
-        headers: httpEvent.headers
+        viewer: ViewerModel.fromJWT(httpEvent.headers.Authorization)
     };
 
     graphql(
@@ -43,13 +45,13 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
         Resolver,
         context,
         _variables
-    ).then((result) => {
+    ).then((result: Object) => {
         callback(null, Object.assign({}, baseResponse, {
             body: result,
             statusCode: result.errors ? 400 : 200
         }));
     })
-    .catch(err => {
+    .catch(() => {
         callback(null, Object.assign({}, baseResponse, {
             statusCode: 500
         }));
