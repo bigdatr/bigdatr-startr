@@ -44,15 +44,17 @@ module.exports = yeoman.Base.extend({
 
         projectfiles: function() {
             var copy = copyTpl.bind(this);
-            copy('src/_index.js',       'src/index.js');
+            const appRootPath = 'src/' + this.appname + '/';
+
+            copy('src/_index.js',       appRootPath + '/index.js');
 
             if(this.props.graphql) {
-                copy('src/graphql/_graphql.js',                 'src/graphql/graphql.js');
-                copy('src/graphql/_index.js',                   'src/graphql/index.js');
-                copy('src/graphql/_resolvers.js',               'src/graphql/resolvers.js');
-                copy('src/graphql/_schemas.js',                 'src/graphql/schemas.js');
-                copy('src/graphql/demo/_DemoResolver.js',       'src/graphql/demo/DemoResolver.js');
-                copy('src/graphql/demo/_DemoSchema.graphql',    'src/graphql/demo/DemoSchema.graphql');
+                copy('src/graphql/_graphql.js',                 appRootPath + '/graphql/graphql.js');
+                copy('src/graphql/_index.js',                   appRootPath + '/graphql/index.js');
+                copy('src/graphql/_resolvers.js',               appRootPath + '/graphql/resolvers.js');
+                copy('src/graphql/_schemas.js',                 appRootPath + '/graphql/schemas.js');
+                copy('src/graphql/demo/_DemoResolver.js',       appRootPath + '/graphql/demo/DemoResolver.js');
+                copy('src/graphql/demo/_DemoSchema.graphql',    appRootPath + '/graphql/demo/DemoSchema.graphql');
             }
 
 
