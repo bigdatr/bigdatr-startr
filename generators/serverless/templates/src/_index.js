@@ -17,7 +17,7 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
     try {
         graphqlRequest = JSON.parse(httpEvent.body);
         if(typeof graphqlRequest.query === 'undefined') {
-            throw new Error('Not a graphql query');
+            throw new Error('[400] Not a graphql query');
         }
     } catch(err) {
         return callback(null, {
@@ -48,7 +48,8 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
             body: result,
             statusCode: result.errors ? 400 : 200
         }));
-    }).catch(err => {
+    })
+    .catch(err => {
         callback(null, Object.assign({}, baseResponse, {
             statusCode: 500
         }));

@@ -1,4 +1,6 @@
 'use strict';
 require('babel-register');
-module.exports = require('./src/index.js');
 
+require('app-module-path').addPath('./src');
+
+module.exports = require('<%= name %>/index.js');

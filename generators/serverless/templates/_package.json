@@ -20,27 +20,28 @@
     "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run test"
   },
   "devDependencies": {
+    "app-module-path": "^2.1.0",
     "ava": "^0.17.0",
     "babel-cli": "^6.18.0",
-    "babel-core": "^6.18.2",
+    "babel-core": "^6.21.0",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-preset-blueflag": "^0.0.1",
     "babel-register": "^6.18.0",
     "enzyme": "^2.6.0",
-    "eslint": "^3.11.1",
-    "eslint-config-blueflag": "^0.3.0",
-    "flow-bin": "^0.36.0",
+    "eslint": "^3.12.2",
+    "eslint-config-blueflag": "^0.4.0",
+    "flow-bin": "^0.37.0",
     "fs-extra": "^1.0.0",
     "glob-all": "^3.1.0",
     "js-yaml": "^3.7.0",
     "jsdoc": "^3.4.3",
-    "jsdoc-babel": "^0.2.1",
+    "jsdoc-babel": "^0.3.0",
     "jsdonk": "^0.2.3",
     "nodemon": "^1.11.0",
     "nyc": "^10.0.0",
     "react": "^15.4.1",
-    "serverless": "^1.2.1",
-    "serverless-offline": "^3.5.4"
+    "serverless": "^1.4.0",
+    "serverless-offline": "^3.5.7"
   },
   "dependencies": {
     <% if(graphql) { %>
