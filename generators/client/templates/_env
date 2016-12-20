@@ -1,10 +1,17 @@
-PORT=<%= port %>
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-S3_BUCKET_NAME=<%= s3Bucket %>
-CLOUDFRONT_DISTRIBUTION_ID=
-<% if(cognito) { %>AWS_REGION=
+<%= nameConstant %>_PORT=<%= port %>
+<%= nameConstant %>_GRAPHQL_SERVER=
+<% if(segment) { %><%= nameConstant %>_SEGMENT_ID=<%= segmentID %><% } %>
+<%= nameConstant %>_AWS_ACCESS_KEY_ID=
+<%= nameConstant %>_AWS_SECRET_ACCESS_KEY=
+<%= nameConstant %>_AWS_S3_BUCKET_NAME=<%= s3Bucket %>
+<%= nameConstant %>_AWS_CLOUDFRONT_DISTRIBUTION_ID=
+<%= nameConstant %>_AWS_S3_ENDPOINT=
+
+<% if(cognito) { %>
+# For cognito forms
+AWS_REGION=
 AWS_IDENTITY_POOL_ID='...'
 AWS_USER_POOL_ID=
 AWS_USER_POOL_ARN=
-AWS_USER_POOL_CLIENT_ID=<% } %>
+AWS_USER_POOL_CLIENT_ID=
+<% } %>

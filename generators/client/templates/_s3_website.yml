@@ -1,8 +1,8 @@
-s3_id:  <%- ("<"+"%"+"="+" ENV['AWS_ACCESS_KEY_ID'] "+"%"+">") %>
-s3_secret: <%- ("<"+"%"+"="+" ENV['AWS_SECRET_ACCESS_KEY'] "+"%"+">") %>
-s3_bucket: <%- ("<"+"%"+"="+" ENV['S3_BUCKET_NAME'] "+"%"+">") %>
-cloudfront_distribution_id: <%- ("<"+"%"+"="+" ENV['CLOUDFRONT_DISTRIBUTION_ID'] "+"%"+">") %>
-s3_endpoint: ap-southeast-2
+s3_id:  <%- ("<"+"%"+"="+" ENV['") %><%= nameConstant %><%- ("_AWS_ACCESS_KEY_ID'] "+"%"+">") %>
+s3_secret: <%- ("<"+"%"+"="+" ENV['") %><%= nameConstant %><%- ("_AWS_SECRET_ACCESS_KEY'] "+"%"+">") %>
+s3_bucket: <%- ("<"+"%"+"="+" ENV['") %><%= nameConstant %><%- ("_AWS_S3_BUCKET_NAME'] "+"%"+">") %>
+cloudfront_distribution_id: <%- ("<"+"%"+"="+" ENV['") %><%= nameConstant %><%- ("_AWS_CLOUDFRONT_DISTRIBUTION_ID'] "+"%"+">") %>
+s3_endpoint: <%- ("<"+"%"+"="+" ENV['") %><%= nameConstant %><%- ("_AWS_S3_ENDPOINT'] "+"%"+">") %>
 
 site: ./dist
 
@@ -10,7 +10,7 @@ index_document: index.html
 error_document: index.html # doing this isn't good - but until s3_website is updated to a newer version of the cloudfront api there isn't really an alternative
 
 cache_control:
-  "*.html": public, max-age=600 # short cache time for html pages since their filenames don't change
+  "*.html": public, max-age=60 # short cache time for html pages since their filenames don't change
   "*": public, max-age=31536000 # super long cache times because filenames are hashed
 
 gzip:
@@ -27,10 +27,10 @@ gzip:
 
 
 # Don't delete old files. This prevents a situation where a user is looking at a cached version
-# of a html page but the css and js resources that the page is requesting has been deleted.
-# This will add a bit of bloat to the buckets but the files are small enough that it shouldn't 
+# of a html page but the css and js resources that the page is requesting have been deleted.
+# This will add a bit of bloat to the buckets but the files are small enough that it shouldn't
 # really matter
-ignore_on_server: _DELETE_NOTHING_ON_THE_S3_BUCKET_ 
+ignore_on_server: _DELETE_NOTHING_ON_THE_S3_BUCKET_
 
 
 cloudfront_wildcard_invalidation: true
@@ -48,9 +48,9 @@ cloudfront_invalidate_root: true
 
 # cloudfront_distribution_id: your-dist-id
 
-# cloudfront_distribution_config:
-#   default_cache_behavior:
-#     min_TTL: <%= 60 * 60 * 24 %>
+cloudfront_distribution_config:
+  default_cache_behavior:
+    min_TTL: 0
 #   aliases:
 #     quantity: 1
 #     items:

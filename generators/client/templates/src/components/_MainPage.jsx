@@ -1,15 +1,19 @@
-import React from 'react';
-import {connect} from 'react-redux';
+/* @flow */
 
-import image from '<%= name %>/assets/15.png';
+import React from 'react';
+import User from '<%= name %>/components/User';
+
+import file from '<%= name %>/assets/15.png';
 
 class MainPage extends React.Component {
-    render() {
+    render(): React.Element<any> {
         return <div>
-        <img src={image}/>
-    </div>
+            <User/>
+
+            <img src={file} alt=""/>
+        </div>;
     }
 }
 
 
-export default connect((state) => ({}))(MainPage);
+export default MainPage;
