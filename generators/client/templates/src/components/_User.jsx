@@ -12,7 +12,7 @@ class User extends React.Component {
             return <div>Loading user...</div>;
         } else {
             return <div>
-                Hello {this.props.user.get('username')}, your user ID is {this.props.user.get('id')}
+                Hello {this.props.user.username}, your user ID is {this.props.user.id}
             </div>;
         }
     }
