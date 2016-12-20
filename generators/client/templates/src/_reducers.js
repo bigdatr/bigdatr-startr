@@ -1,10 +1,16 @@
+/* @flow */
+
 import {combineReducers} from 'redux';
 import {createEntityReducer} from 'redux-blueflag';
-import EntitySchema from '<%= name %>/EntitySchema';
+import EntitySchema from '<%= name %>/entity/EntitySchema';
+import EntityConstructor from '<%= name %>/entity/EntityConstructor';
+
 export default combineReducers({
     entity: createEntityReducer({
-        mainSchema: EntitySchema,
-        GRAPHQL_RECEIVE: EntitySchema
+        schemaMap: {
+            ENTITY_RECEIVE: EntitySchema
+        },
+        afterNormalize: EntityConstructor
     })
 });
 

@@ -22,7 +22,6 @@ function Generator (externalService, externalPrompts, externalActions) {
     actions = externalActions;
     preActions  = actions.actions;
     templateActions = actions.templates;
-
 }
 
 /**
