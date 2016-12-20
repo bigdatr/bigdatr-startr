@@ -6,9 +6,8 @@ import ErrorHandler from '../ErrorHandler';
 
 
 
-test('Error Handler', tt => {
+test('Error Handler Renders without throwing error', tt => {
     tt.notThrows(
-        () => shallow(<ErrorHandler/>),
-        'Renders without throwing error'
+        () => shallow(<ErrorHandler/>)
     );
 });

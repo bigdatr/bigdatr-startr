@@ -4,13 +4,10 @@ import {shallow} from 'enzyme';
 const proxyquire = require('proxyquire').noCallThru();
 const routes = proxyquire('<%= name %>/routes', {'./routeHandlers': {}});
 
-test('routes', tt => {
-
+test('routes exports a route', tt => {
     tt.is(
         routes.type.displayName,
-        'Route',
-        'It exports a route'
+        'Route'
     );
-
 });
 

@@ -14,14 +14,11 @@ const SignUpPage = proxyquire('../SignUpPage', {
 
 
 
-test('Sign up page', tt => {
+test('Sign up page renders a signup form', tt => {
     const page = shallow(<SignUpPage/>);
 
     tt.is(
         page.name(),
-        'SignUpForm',
-        'Renders a signup form'
+        'SignUpForm'
     );
-
-
 });

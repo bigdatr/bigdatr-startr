@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import EntityQuery from '<%= name %>/EntityQuery';
+import EntityQuery from '<%= name %>/entity/EntityQuery';
 
 class User extends React.Component {
     props: {

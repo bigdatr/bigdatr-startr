@@ -12,17 +12,25 @@ const AppHandler = proxyquire('../AppHandler', {
 }).default;
 
 
+const page = shallow(<AppHandler><div>Child Component</div></AppHandler>);
 
-
-test('App Handler', tt => {
-    const page = shallow(<AppHandler><div>Child Component</div></AppHandler>);
+<% if(!cognito) { %>
+test('App handler wraps app in a div', tt => {
     tt.is(
         page.name(),
-        <% if(cognito) { %>'LoginForm',
-        'Wraps in a Login Form component'<% } else { %>'div',
-        'Wraps iwith a div'<% } %>
+        'div'
     );
+});
+<% } else { %>
+test('App handler wraps app in a Login Form component', tt => {
+    tt.is(
+        page.name(),
+        'LoginForm'
+    );
+});
+<% } %>
 
+test('App Handler renders passed children', tt => {
     tt.true(
         page.html().indexOf('Child Component') !== -1,
         'Renders passed children'

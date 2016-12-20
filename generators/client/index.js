@@ -45,8 +45,6 @@ module.exports = yeoman.Base.extend({
 
             // Base files
             copy('src/_client.js',          MODULE_PATH + '/client.js');
-            copy('src/_EntityQuery.js',     MODULE_PATH + '/EntityQuery.js');
-            copy('src/_EntitySchema.js',    MODULE_PATH + '/EntitySchema.js');
             copy('src/_index.static.jsx',   MODULE_PATH + '/index.static.jsx');
             copy('src/_prerender.js',       MODULE_PATH + '/prerender.js');
             copy('src/_reducers.js',        MODULE_PATH + '/reducers.js');
@@ -57,9 +55,16 @@ module.exports = yeoman.Base.extend({
                 copy('src/_tracking.js',    MODULE_PATH + '/tracking.js');
             }
 
+            // Entity stuff
+            copy('src/entity/_EntityQuery.js',                  MODULE_PATH + '/entity/EntityQuery.js');
+            copy('src/entity/_EntitySchema.js',                 MODULE_PATH + '/entity/EntitySchema.js');
+            copy('src/entity/_EntityConstructor.js',            MODULE_PATH + '/entity/EntityConstructor.js');
+            copy('src/entity/_BaseRecord.js',                   MODULE_PATH + '/entity/BaseRecord.js');
+            copy('src/entity/user/_UserRecord.js',              MODULE_PATH + '/entity/user/UserRecord.js');
+            copy('src/entity/__test__/_EntityQuery-test.js',    MODULE_PATH + '/entity/__test__/EntityQuery-test.js');
+            copy('src/entity/__test__/_EntitySchema-test.js',   MODULE_PATH + '/entity/__test__/EntitySchema-test.js');
+
             // Base file tests
-            copy('src/__test__/_EntityQuery-test.js',           MODULE_PATH + '/__test__/EntityQuery-test.js');
-            copy('src/__test__/_EntitySchema-test.js',          MODULE_PATH + '/__test__/EntitySchema-test.js');
             copy('src/__test__/_index.static-test.js',          MODULE_PATH + '/__test__/index.static-test.js');
             copy('src/__test__/_reducer-test.js',               MODULE_PATH + '/__test__/reducer-test.js');
             copy('src/__test__/_routes-test.js',                MODULE_PATH + '/__test__/routes-test.js');

@@ -10,18 +10,17 @@ const MainPage = proxyquire('../MainPage', {
     '<%= name %>/components/User': () => <div>User Component</div>
 }).default;
 
+const page = shallow(<MainPage store={store}/>);
 
-test('MainPage', tt => {
-    const page = shallow(<MainPage store={store}/>);
-
+test('MainPage renders the image loaded with file-loader', tt => {
     tt.true(
-        page.html().indexOf('/path/to/an/image.png') !== -1,
-        'renders the image loaded with file-loader'
+        page.html().indexOf('/path/to/an/image.png') !== -1
     );
+});
 
+
+test('MainPage renders user component', tt => {
     tt.true(
-        page.html().indexOf('User Component') !== -1,
-        'renders user component'
+        page.html().indexOf('User Component') !== -1
     );
-
 });

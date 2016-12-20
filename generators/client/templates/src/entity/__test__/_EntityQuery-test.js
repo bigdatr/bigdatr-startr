@@ -21,69 +21,70 @@ const EntityQueryModule = proxyquire('../EntityQuery', {
 const EntityQuery = EntityQueryModule.default;
 const graphQLRequestAction = EntityQueryModule.graphQLRequestAction;
 
+process.env.<%= nameConstant %>_GRAPHQL_SERVER = 'http://localhost:3000';
 
-test('EntityQuery', tt => {
-    process.env.<%= nameConstant %>_GRAPHQL_SERVER = 'http://localhost:3000';
-    const requestActionThunk = graphQLRequestAction({
-        query : `
-            query {
-              user {
-                id
-                username
-              }
-            }
-        `,
-        variables : {}
-    }, {
-        resultKey: 1000
-    });
+const requestActionThunk = graphQLRequestAction({
+    query : `
+        query {
+          user {
+            id
+            username
+          }
+        }
+    `,
+    variables : {}
+}, {
+    resultKey: 1000
+});
 
-
+test('graphQLRequestAction returns a thunk', tt => {
     tt.is(
         typeof requestActionThunk,
-        'function',
-        'graphQLRequestAction returns a thunk'
+        'function'
     );
+});
 
-
+test('EntityQuery fires fetch action first', tt => {
     const dispatch = sinon.spy();
 
     requestActionThunk(dispatch);
 
     tt.is(
         dispatch.firstCall.args[0].type,
-        'ENTITY_FETCH',
-        'fires fetch action first'
+        'ENTITY_FETCH'
     );
+});
 
 
+test('EntityQuery throws error if no request payload specified', tt => {
     const badRequestActionThunk = graphQLRequestAction({});
     tt.throws(
         () => badRequestActionThunk(()=>{}),
-        'No graphql query specified',
-        'Throws error if no request payload specified'
+        'No graphql query specified'
     );
+});
 
-
+test('EntityQuery catches errors from request', tt => {
     // Testing failing requests
     failing = true;
 
     const failingDispatch = sinon.spy();
 
     tt.notThrows(
-        () => requestActionThunk(failingDispatch),
-        'Catches errors from request'
+        () => requestActionThunk(failingDispatch)
     );
+});
 
 
+test('EntityQuery Throws error if <%= nameConstant %>_GRAPHQL_SERVER env var isn\'t set', tt => {
     process.env.<%= nameConstant %>_GRAPHQL_SERVER = '';
     tt.throws(
         () => requestActionThunk(()=>{}),
         'Graphql server address is not defined',
-        'Throws error if <%= nameConstant %>_GRAPHQL_SERVER env var isn\'t set'
+        ''
     );
-
-
 });
+
+
 
 

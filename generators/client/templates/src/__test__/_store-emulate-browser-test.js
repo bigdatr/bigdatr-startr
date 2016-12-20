@@ -6,8 +6,14 @@ global.window = {
 
 const store = require('../store').default;
 
-test('store', tt => {
-    tt.is(typeof store.dispatch, 'function', 'It has a dispatch function');
-    tt.is(typeof store.getState, 'function', 'It has a getState function');
-    tt.is(typeof store.subscribe, 'function', 'It has a subscribe function');
+test('store has a dispatch function', tt => {
+    tt.is(typeof store.dispatch, 'function', 'It ');
+});
+
+test('store has a getState function', tt => {
+    tt.is(typeof store.getState, 'function');
+});
+
+test('store has a subscribe function', tt => {
+    tt.is(typeof store.subscribe, 'function');
 });

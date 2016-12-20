@@ -2,11 +2,11 @@ require('dotenv').config();
 require('babel-register');
 
 var env = [
-    'AWS_REGION',
+    <% if(cognito) { %>'AWS_REGION',
     'AWS_IDENTITY_POOL_ID',
     'AWS_USER_POOL_ID',
     'AWS_USER_POOL_ARN',
-    'AWS_USER_POOL_CLIENT_ID',
+    'AWS_USER_POOL_CLIENT_ID',<% } %>
     '<%= nameConstant %>_GRAPHQL_SERVER',
     '<%= nameConstant %>_SEGMENT_ID'
 ].reduce(function(rr, ii) {
