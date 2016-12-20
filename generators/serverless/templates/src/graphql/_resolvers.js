@@ -1,1 +1,3 @@
-export {default as demo} from './demo/DemoResolver';
+// @flow
+
+export {default as viewer} from './types/Viewer/ViewerResolver';

@@ -1,3 +1,5 @@
+// @flow
+
 import {buildSchema} from 'graphql';
 import {fromJS} from 'immutable';
 import rootQuerySchema, * as schemas from './schemas';

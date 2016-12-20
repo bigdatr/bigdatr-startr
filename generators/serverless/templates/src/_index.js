@@ -1,10 +1,12 @@
 <% if(graphql) { %>
 
+// @flow
+
 import {Resolver, Schema} from './graphql';
 import {graphql} from 'graphql';
 import {locatedError, formatError} from 'graphql/error';
 
-import ViewerModel from 'chekt-api/graphql/types/Viewer/ViewerModel';
+import ViewerModel from '<%= name %>/graphql/types/Viewer/ViewerModel';
 
 export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaContext, callback: AWSLambdaCallback): void => {
     const baseResponse = {
@@ -18,6 +20,7 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
 
     try {
         graphqlRequest = JSON.parse(httpEvent.body);
+
         if(typeof graphqlRequest.query === 'undefined') {
             throw new Error('[400] Not a graphql query');
         }
@@ -33,7 +36,7 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
     }
 
     const {query, variables} = graphqlRequest;
-    const _variables = typeof variables === 'string' ? JSON.parse(variables) : {};
+    const _variables = typeof variables === 'string' ? JSON.parse(variables || '{}') : {};
 
     const context = {
         viewer: ViewerModel.fromJWT(httpEvent.headers.Authorization)
@@ -57,6 +60,7 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
         }));
     });
 };
+
 
 <% } else { %>
 export const demo = (httpEvent, lambdaContext, callback) => {

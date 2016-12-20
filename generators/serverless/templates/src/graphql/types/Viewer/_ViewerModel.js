@@ -1,12 +1,14 @@
+// @flow
+
 import jwt from 'jsonwebtoken';
 
 import BaseModel from '<%= name %>/shared/models/BaseModel';
 
-// import dataLoaders from 'littlecreatures/graphql/dataLoaders/dataLoaders';
+// import dataLoaders from '<%= name %>/graphql/dataLoaders/dataLoaders';
 
 export default class ViewerModel extends BaseModel {
     _id: string;
-    teams: Array<string>
+    dataLoaders: Object;
 
     static fromJWT(jwtToken: string): ViewerModel {
         const token = jwtToken.substr(4, jwtToken.length);

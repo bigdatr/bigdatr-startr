@@ -53,10 +53,11 @@ module.exports = yeoman.Base.extend({
                 copy('src/graphql/_index.js',                   appRootPath + '/graphql/index.js');
                 copy('src/graphql/_resolvers.js',               appRootPath + '/graphql/resolvers.js');
                 copy('src/graphql/_schemas.js',                 appRootPath + '/graphql/schemas.js');
-                copy('src/graphql/demo/_DemoResolver.js',       appRootPath + '/graphql/demo/DemoResolver.js');
-                copy('src/graphql/demo/_DemoSchema.graphql',    appRootPath + '/graphql/demo/DemoSchema.graphql');
 
                 copy('src/shared/models/_BaseModel.js',                 appRootPath + '/shared/models/BaseModel.js');
+
+                copy('src/graphql/types/User/_UserModel.js',       appRootPath + '/graphql/types/User/UserModel.js');
+                copy('src/graphql/types/User/_UserSchema.graphql',       appRootPath + '/graphql/types/User/UserSchema.graphql');
                 copy('src/graphql/types/Viewer/_ViewerModel.js',       appRootPath + '/graphql/types/Viewer/ViewerModel.js');
             }
 
