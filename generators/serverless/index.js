@@ -51,13 +51,17 @@ module.exports = yeoman.Base.extend({
             if(this.props.graphql) {
                 copy('src/graphql/_graphql.js',                 appRootPath + '/graphql/graphql.js');
                 copy('src/graphql/_index.js',                   appRootPath + '/graphql/index.js');
+                copy('src/graphql/_loaders.js',                 appRootPath + '/graphql/loaders.js');
                 copy('src/graphql/_resolvers.js',               appRootPath + '/graphql/resolvers.js');
                 copy('src/graphql/_schemas.js',                 appRootPath + '/graphql/schemas.js');
 
                 copy('src/shared/models/_BaseModel.js',                 appRootPath + '/shared/models/BaseModel.js');
+                copy('src/shared/utils/_createLoader.js',                 appRootPath + '/shared/utils/createLoader.js');
 
+                copy('src/graphql/types/User/_UserLoader.js',       appRootPath + '/graphql/types/User/UserLoader.js');
                 copy('src/graphql/types/User/_UserModel.js',       appRootPath + '/graphql/types/User/UserModel.js');
                 copy('src/graphql/types/User/_UserSchema.graphql',       appRootPath + '/graphql/types/User/UserSchema.graphql');
+                copy('src/graphql/types/Viewer/_dataloaders.js',       appRootPath + '/graphql/types/Viewer/dataloaders.js');
                 copy('src/graphql/types/Viewer/_ViewerModel.js',       appRootPath + '/graphql/types/Viewer/ViewerModel.js');
                 copy('src/graphql/types/Viewer/_ViewerResolver.js',       appRootPath + '/graphql/types/Viewer/ViewerResolver.js');
             }

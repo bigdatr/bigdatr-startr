@@ -3,8 +3,7 @@
 import jwt from 'jsonwebtoken';
 
 import BaseModel from '<%= name %>/shared/models/BaseModel';
-
-// import dataLoaders from '<%= name %>/graphql/dataLoaders/dataLoaders';
+import dataLoaders from './dataLoaders';
 
 export default class ViewerModel extends BaseModel {
     _id: string;
@@ -23,6 +22,6 @@ export default class ViewerModel extends BaseModel {
     constructor(payload: Object) {
         super(payload);
 
-        // this.dataLoaders = dataLoaders();
+        this.dataLoaders = dataLoaders();
     }
 }
