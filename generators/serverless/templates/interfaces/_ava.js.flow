@@ -1,0 +1,6 @@
+// @flow
+
+
+type AssertContext = {
+	[key: string]: Function
+};

@@ -50,6 +50,7 @@
   },
   "dependencies": {
     <% if(graphql) { %>
+    "chalk": "^1.1.3",
     "dataloader": "^1.2.0",
     "graphql": "^0.8.2",
     <% } %>
@@ -57,19 +58,22 @@
     "jsonwebtoken": "^7.2.1"
   },
   "ava": {
-    "require": "babel-register",
-    "babel": {
-      "presets": [
-        "blueflag"
+      "require": [
+          "./pretest",
+          "babel-register"
       ],
-      "plugins": [
-        "istanbul"
-      ],
-      "sourceMaps": "inline"
-    },
-    "files": [
-      "src/**/*-test.js"
-    ]
+      "babel": {
+          "presets": [
+              "blueflag"
+          ],
+          "plugins": [
+              "istanbul"
+          ],
+          "sourceMaps": "inline"
+      },
+      "files": [
+          "src/**/*-test.js"
+      ]
   },
   "nyc": {
     "all": true,
