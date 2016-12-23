@@ -2,7 +2,7 @@ machine:
     pre:
         - mkdir ~/.yarn-cache
     node:
-        version: stable
+        version: 6.9.2
     environment:
         YARN_VERSION: 0.18.1
         PATH: "${PATH}:${HOME}/.yarn/bin"
@@ -32,6 +32,7 @@ deployment:
             - <%= nameConstant %>_AWS_S3_BUCKET_NAME=$<%= nameConstant %>_AWS_S3_BUCKET_NAME_PROD node scripts/prepareS3WebsiteYml
             - configure-s3-website --config-file=s3_website.yml --headless --autocreate-cloudfront-dist --verbose
             - s3_website push --force
+            - rm s3_website.yml
     release:
         branch: /release\/.*/
         commands:
@@ -40,3 +41,4 @@ deployment:
             - configure-s3-website --config-file=s3_website.yml --headless --autocreate-cloudfront-dist --verbose
             - s3_website push --force
             - <%= nameConstant %>_AWS_S3_BUCKET_NAME=$<%= nameConstant %>_AWS_S3_BUCKET_NAME_DEV node scripts/notifyPrPreview
+            - rm s3_website.yml

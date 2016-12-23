@@ -119,7 +119,7 @@ module.exports = yeoman.Base.extend({
     },
 
     install: function () {
-        const install = this.spawnCommand('yarn', ['install']);
+        const install = this.spawnCommand('yarn', ['install', '--force']);
         install.on('close', (code) => {
             if(!code) {
                 this.spawnCommand('yarn', ['run', 'build-dev']);

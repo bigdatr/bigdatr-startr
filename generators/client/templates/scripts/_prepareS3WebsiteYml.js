@@ -1,7 +1,7 @@
 require('dotenv').config({silent: true});
 
 const fs = require('fs');
-
+const AWS = require('aws-sdk');
 const mustache = require('mustache');
 const getBranch = require('./getBranch');
 const safeBranchName = require('./safeBranchName');
@@ -42,26 +42,36 @@ const getDistributionID = (result) => {
         });
 };
 
+const getCredentials = (result) => {
+    return new Promise((resolve, reject) => {
+        const config = new AWS.Config();
+        config.getCredentials(function(err, credentials){
+            if(err) return reject(err);
+            resolve(Object.assign({}, result, {credentials}));
+        });
+    });
+};
+
 
 const getConfigTemplate = (result) => {
-    const {subfolder, distribution} = result;
+    const {subfolder, distribution, credentials} = result;
     return new Promise((resolve, reject) => {
         console.log('Getting s3_website config template');
         fs.readFile('s3_website-template.yml', 'utf8', (err, template) => {
             if(err) return reject(err);
-            resolve({template, distribution, subfolder});
+            resolve({template, distribution, subfolder, credentials});
         });
     });
 };
 
 const generateConfigFile = (result) => {
-    const {subfolder, distribution, template} = result;
+   const {subfolder, distribution, template, credentials} = result;
 
     return new Promise((resolve, reject) => {
         console.log('Writing s3_website config file');
         let config = mustache.render(template, {
-            aws_id: process.env.<%= nameConstant %>_AWS_ACCESS_KEY_ID,
-            aws_secret: process.env.<%= nameConstant %>_AWS_SECRET_ACCESS_KEY,
+            aws_id: credentials.accessKeyId,
+            aws_secret: credentials.secretAccessKey,
             s3_bucket: bucket,
             cloudfront_distribution: distribution,
             s3_endpoint: region,
@@ -69,7 +79,10 @@ const generateConfigFile = (result) => {
         });
 
         if(!distribution) {
-            config = config.replace(/cloudfront_distribution_id.*?\n/, '');
+            // @TODO be smarter about this...
+            config = config.replace(/cloudfront_distribution_id:\s*?\n/, '');
+            config = config.replace(/\borigin_path:\s*?\/\n/, 'origin_path: ""\n');
+            config = config.replace(/\bs3_key_prefix:\s*?\n/, '');
         }
         fs.writeFile('s3_website.yml', '# THIS FILE IS AUTO GENERATED - DO NOT EDIT – DO NOT COMMIT INTO SOURCE CONTROL\n\n' + config, (err) => {
             if(err) return reject(err);
@@ -81,6 +94,7 @@ const generateConfigFile = (result) => {
 
 getOriginPath()
     .then(getDistributionID)
+    .then(getCredentials)
     .then(getConfigTemplate)
     .then(generateConfigFile)
     .catch(err => {console.error(err); process.exit(1)});
