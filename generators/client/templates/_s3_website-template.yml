@@ -1,0 +1,55 @@
+s3_id: {{{aws_id}}}
+s3_secret: {{{aws_secret}}}
+s3_bucket: {{{s3_bucket}}}
+cloudfront_distribution_id: {{{cloudfront_distribution}}}
+s3_endpoint: {{{s3_endpoint}}}
+s3_key_prefix: {{{s3_subfolder}}}
+
+site: ./dist
+
+index_document: index.html
+error_document: index.html
+
+cache_control:
+  "*.html": public, max-age=60 # short cache time for html pages since their filenames don't change
+  "*": public, max-age=31536000 # super long cache times because filenames are hashed
+
+gzip:
+  - .html
+  - .css
+  - .js
+  - .csv
+  - .json
+  - .svg
+  - .md
+  - .eot
+  - .ttf
+  - .otf
+
+
+# Don't delete old files. This prevents a situation where a user is looking at a cached version
+# of a html page but the css and js resources that the page is requesting have been deleted.
+# This will add a bit of bloat to the buckets but the files are small enough that it shouldn't
+# really matter
+ignore_on_server: _DELETE_NOTHING_ON_THE_S3_BUCKET_
+
+
+cloudfront_wildcard_invalidation: true
+cloudfront_invalidate_root: true
+
+
+cloudfront_distribution_config:
+  http_version: http2
+  custom_error_responses:
+    quantity: 1
+    items:
+      - error_caching_min_ttl: 60
+        error_code: "404"
+        response_code: "200"
+        response_page_path: /index.html
+  origins:
+    items:
+      - origin_path: /{{s3_subfolder}}
+  default_cache_behavior:
+    min_ttl: 0
+    viewer_protocol_policy: redirect-to-https
