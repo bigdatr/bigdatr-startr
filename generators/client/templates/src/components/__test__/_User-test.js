@@ -2,7 +2,7 @@ import React from 'react';
 import test from 'ava';
 import {shallow} from 'enzyme';
 import store from '../../store';
-import {Map} from 'immutable';
+import UserRecord from '../../entity/user/UserRecord';
 
 const proxyquire = require('proxyquire').noCallThru();
 
@@ -16,7 +16,7 @@ const User = proxyquire('../User', {
 process.env.<%= nameConstant %>_GRAPHQL_SERVER = 'http://localhost:3000';
 
 
-const UserWithData = shallow(<User store={store} user={Map({
+const UserWithData = shallow(<User store={store} user={new UserRecord({
     username: 'Test Testerson',
     id: '1234567890'
 })}/>); // note that store is passed here for testing purposes, normally the app would be

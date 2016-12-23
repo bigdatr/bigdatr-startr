@@ -50,12 +50,6 @@ module.exports = function(props) {
             default: 3000
         },
         {
-            type: 'input',
-            name: 's3Bucket',
-            message: 'What is the S3 bucket that the site will be deployed to? (leave blank if you don\'t know)',
-            default: ''
-        },
-        {
             type: 'confirm',
             name: 'cognito',
             message: 'Do you want cognito? (note that prerendering is not compatible with cognito)',
