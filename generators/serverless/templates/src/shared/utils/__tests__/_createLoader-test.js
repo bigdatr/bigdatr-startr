@@ -2,7 +2,7 @@
 
 import test from 'ava';
 
-import createLoader from 'chekt-api/shared/utils/createLoader';
+import createLoader from '<%= name %>/shared/utils/createLoader';
 
 test('createLoader should return an instance of DataLoader', (t: AssertContext): Promise<> => {
     const myLoader = createLoader((ids: Array<number>): Promise<Array<number>> => {

@@ -2,7 +2,7 @@
 
 import test from 'ava';
 
-import ViewerResolver from 'chekt-api/graphql/types/Viewer/ViewerResolver';
+import ViewerResolver from '<%= name %>/graphql/types/Viewer/ViewerResolver';
 
 test('ViewerResolver', (t: AssertContext): Promise<> => {
     const input = {

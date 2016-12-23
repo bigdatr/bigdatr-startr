@@ -4,7 +4,7 @@
 
 import {Resolver, Schema} from './graphql';
 import {graphql} from 'graphql';
-import {locatedError, formatError} from 'graphql/error';
+import {formatError} from 'graphql/error';
 
 import ViewerModel from '<%= name %>/graphql/types/Viewer/ViewerModel';
 
@@ -29,7 +29,8 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
             statusCode: 400,
             body: {
                 errors: [
-                    formatError(locatedError(err))
+                    // formatError(locatedError(err))
+                    formatError(err)
                 ]
             }
         });

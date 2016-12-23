@@ -2,11 +2,11 @@
 
 import test from 'ava';
 
-import dataloaders from 'chekt-api/graphql/types/Viewer/dataloaders';
+import dataloaders from '<%= name %>/graphql/types/Viewer/dataloaders';
 
-test('dataloaders', (t: AssertContext) => {
+test('dataloaders', (t: AssertContext): void => {
     const dl = dataloaders();
 
     t.truthy(dl.UserLoader);
-    t.truthy(dl.UserLoader.loadUserByID);
+    return t.truthy(dl.UserLoader.loadUserByID);
 });

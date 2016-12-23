@@ -3,11 +3,12 @@
 export default class BaseModel {
     getViewer: Function;
 
-    constructor(data: Object, options: ?Object = {}) {
-        Object.keys(data || {})
-            .forEach((k: string): any => this[k] = data[k]);
+    constructor(data: ?{[key: string]: string}, options: Object = {}) {
+        Object.assign(this, data || {});
+        // Object.keys(data || {})
+        //     .forEach((k: string): any => this[k] = data[k]);
 
-        if (options.viewer) {
+        if (options && options.viewer) {
             this.getViewer = () => options.viewer;
         }
     }
