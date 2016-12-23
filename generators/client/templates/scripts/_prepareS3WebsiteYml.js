@@ -78,12 +78,16 @@ const generateConfigFile = (result) => {
             s3_subfolder: subfolder
         });
 
+        // @TODO be smarter about this...
         if(!distribution) {
-            // @TODO be smarter about this...
             config = config.replace(/cloudfront_distribution_id:\s*?\n/, '');
-            config = config.replace(/\borigin_path:\s*?\/\n/, 'origin_path: ""\n');
-            config = config.replace(/\bs3_key_prefix:\s*?\n/, '');
         }
+
+        if(!subfolder) {
+            config = config.replace(/origin_path:\s*?\/\n/, 'origin_path: ""\n');
+            config = config.replace(/s3_key_prefix:\s*?\n/, '');
+        }
+
         fs.writeFile('s3_website.yml', '# THIS FILE IS AUTO GENERATED - DO NOT EDIT – DO NOT COMMIT INTO SOURCE CONTROL\n\n' + config, (err) => {
             if(err) return reject(err);
             console.log('Great success!');
