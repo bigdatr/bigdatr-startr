@@ -58,19 +58,22 @@
     "jsonwebtoken": "^7.2.1"
   },
   "ava": {
-    "require": "babel-register",
-    "babel": {
-      "presets": [
-        "blueflag"
+      "require": [
+          "./pretest",
+          "babel-register"
       ],
-      "plugins": [
-        "istanbul"
-      ],
-      "sourceMaps": "inline"
-    },
-    "files": [
-      "src/**/*-test.js"
-    ]
+      "babel": {
+          "presets": [
+              "blueflag"
+          ],
+          "plugins": [
+              "istanbul"
+          ],
+          "sourceMaps": "inline"
+      },
+      "files": [
+          "src/**/*-test.js"
+      ]
   },
   "nyc": {
     "all": true,

@@ -13,3 +13,4 @@ module.system.node.resolve_dirname=src
 
 [libs]
 ./interfaces/
+./node_modules/ava/index.js.flow

@@ -19,9 +19,7 @@ export default function createLoader(loaderFn: Function): DataLoader {
 }
 
 function log(name: string, ids: Array<string>, startTime: Date) {
-    let idsStr = ids
-                    .map((id: string): string => id.length === 24 ? id.substr(19) : id)
-                    .join(', ');
+    let idsStr = ids.join(', ');
 
     // Apply log colors
     const msg = chalk.gray('DATALOADER');
@@ -32,6 +30,7 @@ function log(name: string, ids: Array<string>, startTime: Date) {
     console.log(`${msg} ${ms} ${loaderName}`, idsStr);
 }
 
+/* istanbul ignore next */
 function _formatResponseTime(ms: number): string {
     let color = 'gray';
 

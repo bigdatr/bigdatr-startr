@@ -21,7 +21,7 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
     try {
         graphqlRequest = JSON.parse(httpEvent.body);
 
-        if(typeof graphqlRequest.query === 'undefined') {
+        if (typeof graphqlRequest.query === 'undefined') {
             throw new Error('[400] Not a graphql query');
         }
     } catch(err) {
@@ -36,7 +36,9 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
     }
 
     const {query, variables} = graphqlRequest;
-    const _variables = typeof variables === 'string' ? JSON.parse(variables || '{}') : {};
+    const _variables = typeof variables === 'string' && variables !== ''
+                        ? JSON.parse(variables)
+                        : {};
 
     const context = {
         viewer: ViewerModel.fromJWT(httpEvent.headers.Authorization)
@@ -50,8 +52,7 @@ export const graphqlApi = (httpEvent: AWSLambdaEvent, lambdaContext: AWSLambdaCo
         _variables
     ).then((result: Object) => {
         callback(null, Object.assign({}, baseResponse, {
-            body: result,
-            statusCode: result.errors ? 400 : 200
+            body: result
         }));
     })
     .catch(() => {

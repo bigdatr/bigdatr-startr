@@ -9,8 +9,8 @@ export function loadUserByID(ids: Array<number>): Promise<Array<Object>> {
 
         setTimeout(() => {
             const response = ids.map((id: number, i: number) => ({
-                sub: `fakeuser-${i}`,
-                username: `${i}@fake-app.com`
+                sub: `fakeuser-${id}`,
+                username: `fakeuser-${id}@fake-app.com`
             }));
 
             resolve(response);
