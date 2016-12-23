@@ -31,11 +31,19 @@ module.exports = yeoman.Base.extend({
             copy('_jsdoc-config.json',  'jsdoc-config.json');
             copy('_package.json',       'package.json');
             copy('_README.md',          'README.md');
-            copy('_s3_website.yml',     's3_website.yml');
+            copy('_s3_website-template.yml',     's3_website-template.yml');
             copy('_webpack.config.js',  'webpack.config.js');
             copy('_yarn.lock',          'yarn.lock');
             copy('_pretest.js',         'pretest.js');
             copy('decls/_gitkeep',      'decls/.gitkeep');
+
+            // Deploy scripts
+            copy('scripts/_findDistribution.js', 'scripts/findDistribution.js');
+            copy('scripts/_getBranch.js', 'scripts/getBranch.js');
+            copy('scripts/_notifyPrPreview.js', 'scripts/notifyPrPreview.js');
+            copy('scripts/_prepareS3WebsiteYml.js', 'scripts/prepareS3WebsiteYml.js');
+            copy('scripts/_safeBranchName.js', 'scripts/safeBranchName.js');
+
         },
 
         projectfiles: function() {
@@ -55,14 +63,20 @@ module.exports = yeoman.Base.extend({
                 copy('src/_tracking.js',    MODULE_PATH + '/tracking.js');
             }
 
+
+
+
             // Entity stuff
-            copy('src/entity/_EntityQuery.js',                  MODULE_PATH + '/entity/EntityQuery.js');
-            copy('src/entity/_EntitySchema.js',                 MODULE_PATH + '/entity/EntitySchema.js');
-            copy('src/entity/_EntityConstructor.js',            MODULE_PATH + '/entity/EntityConstructor.js');
-            copy('src/entity/_BaseRecord.js',                   MODULE_PATH + '/entity/BaseRecord.js');
-            copy('src/entity/user/_UserRecord.js',              MODULE_PATH + '/entity/user/UserRecord.js');
-            copy('src/entity/__test__/_EntityQuery-test.js',    MODULE_PATH + '/entity/__test__/EntityQuery-test.js');
-            copy('src/entity/__test__/_EntitySchema-test.js',   MODULE_PATH + '/entity/__test__/EntitySchema-test.js');
+            copy('src/entity/_EntityQuery.js',                     MODULE_PATH + '/entity/EntityQuery.js');
+            copy('src/entity/_EntitySchema.js',                    MODULE_PATH + '/entity/EntitySchema.js');
+            copy('src/entity/_EntityConstructor.js',               MODULE_PATH + '/entity/EntityConstructor.js');
+            copy('src/entity/_BaseRecord.js',                      MODULE_PATH + '/entity/BaseRecord.js');
+            copy('src/entity/user/_UserRecord.js',                 MODULE_PATH + '/entity/user/UserRecord.js');
+            copy('src/entity/__test__/_EntityQuery-test.js',       MODULE_PATH + '/entity/__test__/EntityQuery-test.js');
+            copy('src/entity/__test__/_EntitySchema-test.js',      MODULE_PATH + '/entity/__test__/EntitySchema-test.js');
+            copy('src/entity/__test__/_EntitySchema-test.js',      MODULE_PATH + '/entity/__test__/EntitySchema-test.js');
+            copy('src/entity/__test__/_BaseRecord-test.js',        MODULE_PATH + '/entity/__test__/BaseRecord-test.js');
+            copy('src/entity/__test__/_EntityConstructor-test.js', MODULE_PATH + '/entity/__test__/EntityConstructor-test.js');
 
             // Base file tests
             copy('src/__test__/_index.static-test.js',          MODULE_PATH + '/__test__/index.static-test.js');

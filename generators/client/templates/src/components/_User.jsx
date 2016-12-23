@@ -2,10 +2,11 @@
 
 import React from 'react';
 import EntityQuery from '<%= name %>/entity/EntityQuery';
+import UserRecord from '<%= name %>/entity/user/UserRecord';
 
 class User extends React.Component {
     props: {
-        user: Map<string, any>
+        user: UserRecord
     };
     render(): React.Element<any> {
         if(!this.props.user) {
