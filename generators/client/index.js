@@ -33,7 +33,6 @@ module.exports = yeoman.Base.extend({
             copy('_README.md',          'README.md');
             copy('_s3_website-template.yml',     's3_website-template.yml');
             copy('_webpack.config.js',  'webpack.config.js');
-            copy('_yarn.lock',          'yarn.lock');
             copy('_pretest.js',         'pretest.js');
             copy('decls/_gitkeep',      'decls/.gitkeep');
 

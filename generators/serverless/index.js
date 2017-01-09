@@ -35,7 +35,6 @@ module.exports = yeoman.Base.extend({
             copy('_local.js',           'local.js');
             copy('_README.md',          'README.md');
             copy('_serverless.yml',     'serverless.yml');
-            copy('_yarn.lock',          'yarn.lock');
             copy('interfaces/_awslambda.js.flow',  'interfaces/awslambda.js.flow');
             copy('interfaces/_ava.js.flow',  'interfaces/ava.js.flow');
             copy('scripts/_bundle.js',  'scripts/bundle.js');
