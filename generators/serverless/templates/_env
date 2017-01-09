@@ -1,2 +1,2 @@
-SERVERLESS_STAGE=dev
-SERVERLESS_REGION=ap-southeast-2
+# Add env variables here as needed
+# @TODO check that these work
