@@ -13,9 +13,7 @@ module.exports = yeoman.Base.extend({
     prompting: function () {
         return this.prompt(getPrompts(this)).then(function (props) {
             this.props = props;
-            this.props.nameConstant = props.name.replace(/\W/,"_").toUpperCase();
-            console.log(typeof this.props.graphql);
-            this.props.graphql = this.props.graphql === 'false' ? false : true;
+            this.props.nameConstant = props.name.replace(/\W/g,"_").toUpperCase();
         }.bind(this));
     },
 
@@ -34,6 +32,7 @@ module.exports = yeoman.Base.extend({
             copy('_package.json',       'package.json');
             copy('_pretest.js',         'pretest.js');
             copy('_prod.js',            'prod.js');
+            copy('_local.js',           'local.js');
             copy('_README.md',          'README.md');
             copy('_serverless.yml',     'serverless.yml');
             copy('_yarn.lock',          'yarn.lock');
@@ -50,7 +49,6 @@ module.exports = yeoman.Base.extend({
 
             copy('src/_index.js',       appRootPath + '/index.js');
             copy('src/__tests__/_index-test.js',       appRootPath + '/__tests__/index-test.js');
-
             if(this.props.graphql) {
                 copy('src/graphql/_graphql.js',                 appRootPath + '/graphql/graphql.js');
                 copy('src/graphql/_index.js',                   appRootPath + '/graphql/index.js');

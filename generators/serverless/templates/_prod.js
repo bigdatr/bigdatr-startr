@@ -1,2 +1,2 @@
 'use strict';
-module.exports = require('./dist/index.js');
+module.exports = require('./dist/<%= name %>/index.js');

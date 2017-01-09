@@ -25,4 +25,9 @@ deployment:
     master:
         branch: master
         commands:
-            - yarn run deploy
+            - yarn run build
+            - node scripts/bundle
+            - cd bundle
+            - yarn install --ignore-engines --prod
+            - node ../node_modules/.bin/serverless deploy -v -s prod
+            - cd ../

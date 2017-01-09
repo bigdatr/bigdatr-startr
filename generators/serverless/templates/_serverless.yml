@@ -7,26 +7,25 @@ service: <%= name %>
 provider:
   name: aws
   runtime: nodejs4.3
-
-# Set env variables in the .env file
-stage: ${env:SERVERLESS_STAGE}
-region: ${env:SERVERLESS_REGION}
+  region: ap-southeast-2
+  stage: ${opt:stage}
 
 
 # NOTE: This doesn't act quite like serverless, which adds a ** to the start of your globs which
 # massively slows down globbing. By default everything is excluded. See ./scripts/bundle.js for details.
 package:
-  include: 
+  include:
     - node_modules/**
     - dist/**
     - prod.js
+    - dev.js
     - package.json
 
 
 functions:
   <% if(graphql) { %>
   graphql:
-    handler: ${env:SERVERLESS_STAGE}.graphqlApi
+    handler: ${opt:stage}.graphqlApi
     events:
       - http:
           path: /
@@ -34,7 +33,7 @@ functions:
           cors: true
   <% } else { %>
   demo:
-    handler: ${env:SERVERLESS_STAGE}.demo
+    handler: ${opt:stage}.demo
     events:
       - http:
           path: /
