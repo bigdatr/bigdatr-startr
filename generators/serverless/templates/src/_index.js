@@ -4,7 +4,7 @@
 import {Resolver, Schema} from './graphql';
 import {graphql} from 'graphql';
 import {formatError} from 'graphql/error';
-import ViewerModel from 'with-graphql/graphql/types/Viewer/ViewerModel';
+import ViewerModel from '<%= name %>/graphql/types/Viewer/ViewerModel';
 
 export const graphqlApi = async function(
     httpEvent: AWSLambdaEvent,

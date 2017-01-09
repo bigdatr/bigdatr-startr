@@ -1,7 +1,7 @@
 // @flow
 
-import createLoader from 'with-graphql/shared/utils/createLoader';
-import * as loaders from 'with-graphql/graphql/loaders';
+import createLoader from '<%= name %>/shared/utils/createLoader';
+import * as loaders from '<%= name %>/graphql/loaders';
 
 // Convert each function into a DataLoader
 export default function dataLoaders(): Object {

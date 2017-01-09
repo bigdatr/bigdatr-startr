@@ -82,7 +82,7 @@ test('graphqlApi handles malformed or missing auth header', (t: AssertContext): 
     };
 
     const callback = (err: Error, result: Object) => {
-        t.true(result.statusCode === 403);
+        t.true(result.statusCode >= 400);
     };
 
     return graphqlApi(httpEvent, LAMBDA_CONTEXT, callback);
