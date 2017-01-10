@@ -3,7 +3,7 @@
 import jwt from 'jsonwebtoken';
 
 import BaseModel from '<%= name %>/shared/models/BaseModel';
-import dataLoaders from './dataLoaders';
+import dataLoaders from './dataloaders';
 
 export default class ViewerModel extends BaseModel {
     _id: string;
