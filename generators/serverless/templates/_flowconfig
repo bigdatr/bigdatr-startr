@@ -13,6 +13,6 @@ suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 .*/scripts/.*
 
 [libs]
-./interfaces/
+./interfaces/<% if(graphql) { %>
 ./node_modules/graphql/error/GraphQLError.js.flow
-./node_modules/graphql/error/formatError.js.flow
+./node_modules/graphql/error/formatError.js.flow<% } %>

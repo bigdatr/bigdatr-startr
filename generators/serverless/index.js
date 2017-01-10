@@ -47,8 +47,8 @@ module.exports = yeoman.Base.extend({
             const appRootPath = 'src/' + this.appname + '/';
 
             copy('src/_index.js',       appRootPath + '/index.js');
-            copy('src/__tests__/_index-test.js',       appRootPath + '/__tests__/index-test.js');
             if(this.props.graphql) {
+                copy('src/__tests__/_index-test.js',       appRootPath + '/__tests__/index-test.js');
                 copy('src/graphql/_graphql.js',                 appRootPath + '/graphql/graphql.js');
                 copy('src/graphql/_index.js',                   appRootPath + '/graphql/index.js');
                 copy('src/graphql/_loaders.js',                 appRootPath + '/graphql/loaders.js');
