@@ -28,12 +28,12 @@ const reactRouterToArray = require('react-router-to-array');
 const watching = process.argv[1] && process.argv[1].indexOf('webpack-dev-server') !== -1;
 
 let paths = ['/'];
-if(process.env.NODE_ENV === 'production') {
+<% if(prerender) { %>if(process.env.NODE_ENV === 'production') {
     // Stub route handlers, we just need the route paths
     const routes = proxyquire('./src/<%= name %>/routes', {'./routeHandlers': {}});
     // Get paths from routes
     paths = reactRouterToArray(routes);
-}
+}<% } %>
 
 /**
  *
