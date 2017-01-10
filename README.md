@@ -59,18 +59,6 @@ yarn watch
 This will start webpack-dev-server at the port you specified in the setup.
 
 
-#### S3/CloudFront Deployment setup
-
-1. If you didn't specify a s3-bucket to deploy to in the initial setup you can do so now in the `.env` file.
-2. Add your AWS credentials to the `.env` file.
-3. For deployments through circleci to work, a cloudfront distribution must be created. This can be done manually through aws or automatically with s3 website. To automatically create a cloudfront distribution run `s3_website cfg apply` and when asked if you want to deliver your website via CloudFront, say yes.
-4. This will automatically create the cloudfront distribution and will add the distribution ID to your `s3_website.yml` file.
-5. Copy the `cloudfront_distribution_id` value from the `s3_website.yml` file and place it in the `.env` file.
-6. Remove the `cloudfront_distribution_id` line that `s3_website` added to the `s3_website.yml` so that it will be read from the `.env` file instead.
-
-The website is now ready to be deployed and as long as the environment variables are set correctly, will deploy automatically via circle-ci when changes are merged into the master branch.
-
-
 #### Tasks
 
 | Command                   | Description                                                                   |

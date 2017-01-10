@@ -77,17 +77,6 @@ module.exports = function(props) {
             message: 'Would you like segment tracking?',
             default: true,
             store: true
-        },
-        {
-            type: 'input',
-            name: 'segmentID',
-            message: 'What is your segment tracking account ID (leave blank if you don\'t know)',
-            default: '',
-            when: function(answers) {
-                return answers.segment; // Only ask this if user wanted segment
-            },
-            store: true
         }
-
     ];
 }

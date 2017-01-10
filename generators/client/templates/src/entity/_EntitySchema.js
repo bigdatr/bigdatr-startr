@@ -2,10 +2,10 @@
 
 import {Schema} from 'redux-blueflag';
 
-var UserSchema = new Schema('user', {idAttribute: 'id'});
+var ViewerSchema = new Schema('viewer', {idAttribute: 'username'});
 
 const EntitySchema = {
-    user: UserSchema
+    viewer: ViewerSchema
 };
 
 export default EntitySchema;

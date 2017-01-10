@@ -100,12 +100,12 @@ module.exports = yeoman.Base.extend({
             copy('src/components/_AppHandler.jsx',                   MODULE_PATH + '/components/AppHandler.jsx');
             copy('src/components/_ErrorHandler.jsx',                 MODULE_PATH + '/components/ErrorHandler.jsx');
             copy('src/components/_MainPage.jsx',                     MODULE_PATH + '/components/MainPage.jsx');
-            copy('src/components/_User.jsx',                         MODULE_PATH + '/components/User.jsx');
+            copy('src/components/_Viewer.jsx',                       MODULE_PATH + '/components/Viewer.jsx');
 
             copy('src/components/__test__/_AppHandler-test.js',     MODULE_PATH + '/components/__test__/AppHandler-test.js');
             copy('src/components/__test__/_ErrorHandler-test.js',   MODULE_PATH + '/components/__test__/ErrorHandler-test.js');
             copy('src/components/__test__/_MainPage-test.js',       MODULE_PATH + '/components/__test__/MainPage-test.js');
-            copy('src/components/__test__/_User-test.js',           MODULE_PATH + '/components/__test__/User-test.js');
+            copy('src/components/__test__/_Viewer-test.js',         MODULE_PATH + '/components/__test__/Viewer-test.js');
 
             if(this.props.cognito) {
                 copy('src/components/_SignUpPage.jsx',               MODULE_PATH + '/components/SignUpPage.jsx');

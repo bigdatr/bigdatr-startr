@@ -1,12 +1,13 @@
 <%= nameConstant %>_PORT=<%= port %>
 <%= nameConstant %>_GRAPHQL_SERVER=
-<% if(segment) { %><%= nameConstant %>_SEGMENT_ID=<%= segmentID %><% } %>
 
 # These are only needed for deployment, don't set locally
-<%= nameConstant %>_AWS_S3_BUCKET_NAME=
-<%= nameConstant %>_AWS_CLOUDFRONT_DISTRIBUTION_ID=
-<%= nameConstant %>_AWS_S3_ENDPOINT=
-<%= nameConstant %>_GITHUB_API_KEY=
+# <%= nameConstant %>_AWS_ACCESS_KEY_ID=
+# <%= nameConstant %>_AWS_SECRET_ACCESS_KEY=
+# <%= nameConstant %>_AWS_S3_BUCKET_NAME=wowo-dev-bigdatr-wowo-client-prod
+# <%= nameConstant %>_AWS_CLOUDFRONT_DISTRIBUTION_ID=
+# <%= nameConstant %>_AWS_S3_ENDPOINT=ap-southeast-2
+# <%= nameConstant %>_GITHUB_API_KEY=
 
 <% if(cognito) { %>
 # For cognito forms
