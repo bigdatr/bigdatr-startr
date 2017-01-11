@@ -2,7 +2,8 @@
 
 // Individual schemas
 // $FlowFixMe: Supress errors imports .graphql files
-export {default as User} from './types/User/UserSchema.graphql';
+import User from './types/User/UserSchema.graphql';
+export {User as User};
 
 // Root query schema
 export default `

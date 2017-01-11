@@ -36,11 +36,9 @@ function _formatResponseTime(ms: number): string {
 
     if (ms >= 500) {
         color = 'red';
-    }
-    else if (ms >= 300) {
+    } else if (ms >= 300) {
         color = 'magenta';
-    }
-    else if (ms >= 100) {
+    } else if (ms >= 100) {
         color = 'yellow';
     }
 

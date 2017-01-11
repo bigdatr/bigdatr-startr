@@ -1,6 +1,4 @@
 'use strict';
-require('babel-register');
-
-require('app-module-path').addPath('./src');
-
-module.exports = require('<%= name %>/index.js');
+require('dotenv').config({silent: true});
+require('app-module-path').addPath('./dist');
+module.exports = require('./dist/<%= name %>/index.js');

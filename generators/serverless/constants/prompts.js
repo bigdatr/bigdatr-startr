@@ -5,37 +5,43 @@ module.exports = function(props) {
             type: 'input',
             name: 'name',
             message: 'What is your project name?',
-            default: path.parse(process.cwd()).name // Default to current folder name
+            default: path.parse(process.cwd()).name, // Default to current folder name
+            store: true
         },
         {
             type: 'input',
             name: 'description',
             message: 'Enter a short project description:',
-            default: ''
+            default: '',
+            store: true
         },
         {
             type: 'input',
             name: 'version',
             message: 'What semver version should the project start on?',
-            default: '0.0.0'
+            default: '0.0.0',
+            store: true
         },
         {
             type: 'input',
             name: 'license',
             message: 'What license is the project distributed under?',
-            default: 'UNLICENSED'
+            default: 'UNLICENSED',
+            store: true
         },
         {
-            type: 'input',
+            type: 'confirm',
             name: 'private',
-            message: 'Is this a private project? (true/false)',
-            default: true
+            message: 'Is this a private project?',
+            default: true,
+            store: true
         },
         {
             type: 'input',
             name: 'author',
             message: 'Who/what is the author of this project?',
-            default: ''
+            default: '',
+            store: true
         },
         {
             type: 'input',
@@ -47,13 +53,15 @@ module.exports = function(props) {
             type: 'input',
             name: 'port',
             message: 'What port would you like the development server to run on?',
-            default: 3000
+            default: 3000,
+            store: true
         },
         {
-            type: 'input',
+            type: 'confirm',
             name: 'graphql',
-            message: 'Is this a graphql service? (true/false)',
-            default: true
+            message: 'Is this a graphql service?',
+            default: true,
+            store: true
         }
     ];
 }

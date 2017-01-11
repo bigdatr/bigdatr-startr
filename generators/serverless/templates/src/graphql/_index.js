@@ -1,13 +1,2 @@
-// @flow
-
-//
-// Shim the graphql syntax requires so
-// that they return as strings
-var fs = require('fs');
-
-// $FlowFixMe: Supressing this error cause it ain't an issue
-require.extensions['.graphql'] = (module: Object, filename: string) => {
-    module.exports = fs.readFileSync(filename, 'utf8');
-};
-
+// This is pretty stupid but flow isn't happy if the contents of ./graphql.js are in this file...
 module.exports = require('./graphql');

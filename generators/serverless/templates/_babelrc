@@ -6,6 +6,7 @@
         "blueflag"
     ],
     "plugins": [
+        "inline-import",
         "transform-class-properties",
         "transform-runtime"
     ],
