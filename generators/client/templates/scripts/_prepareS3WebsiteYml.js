@@ -65,7 +65,7 @@ const getConfigTemplate = (result) => {
 };
 
 const generateConfigFile = (result) => {
-   const {subfolder, distribution, template, credentials} = result;
+    const {subfolder, distribution, template, credentials} = result;
 
     return new Promise((resolve, reject) => {
         console.log('Writing s3_website config file');

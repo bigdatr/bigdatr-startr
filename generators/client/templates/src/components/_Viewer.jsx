@@ -4,16 +4,16 @@ import React from 'react';
 import EntityQuery from '<%= name %>/entity/EntityQuery';
 import UserRecord from '<%= name %>/entity/user/UserRecord';
 
-class User extends React.Component {
+class Viewer extends React.Component {
     props: {
-        user: UserRecord
+        viewer: UserRecord
     };
     render(): React.Element<any> {
-        if(!this.props.user) {
-            return <div>Loading user...</div>;
+        if(!this.props.viewer) {
+            return <div>Loading viewer...</div>;
         } else {
             return <div>
-                Hello {this.props.user.username}, your user ID is {this.props.user.id}
+                Hello {this.props.viewer.username}
             </div>;
         }
     }
@@ -23,14 +23,13 @@ const withEntityQuery = EntityQuery((): Object => {
     return {
         query : `
             query {
-              user {
-                id
-                username
-              }
+                viewer {
+                    username
+                }
             }
         `,
         variables : {}
     };
 }, []);
 
-export default withEntityQuery(User);
+export default withEntityQuery(Viewer);

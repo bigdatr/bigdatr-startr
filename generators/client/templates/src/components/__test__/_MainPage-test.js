@@ -7,7 +7,7 @@ const proxyquire = require('proxyquire').noCallThru();
 
 const MainPage = proxyquire('../MainPage', {
     '<%= name %>/assets/15.png': '/path/to/an/image.png',
-    '<%= name %>/components/User': () => <div>User Component</div>
+    '<%= name %>/components/Viewer': () => <div>Viewer Component</div>
 }).default;
 
 const page = shallow(<MainPage store={store}/>);
@@ -21,6 +21,6 @@ test('MainPage renders the image loaded with file-loader', tt => {
 
 test('MainPage renders user component', tt => {
     tt.true(
-        page.html().indexOf('User Component') !== -1
+        page.html().indexOf('Viewer Component') !== -1
     );
 });

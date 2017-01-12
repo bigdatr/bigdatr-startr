@@ -1,14 +1,14 @@
 /* @flow */
 
 import React from 'react';
-import User from '<%= name %>/components/User';
+import Viewer from '<%= name %>/components/Viewer';
 
 import file from '<%= name %>/assets/15.png';
 
 class MainPage extends React.Component {
     render(): React.Element<any> {
         return <div>
-            <User/>
+            <Viewer/>
 
             <img src={file} alt=""/>
         </div>;

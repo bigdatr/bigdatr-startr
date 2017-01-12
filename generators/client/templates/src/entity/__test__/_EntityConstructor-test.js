@@ -3,7 +3,7 @@ import EntityConstructor from '../EntityConstructor';
 import {Map, Record} from 'immutable';
 
 test('EntityConstructor returns Record when key matches', tt => {
-    const userRecord = EntityConstructor(Map({username: 'foo@bar.com', id: '123'}), 'user');
+    const userRecord = EntityConstructor(Map({username: 'foo@bar.com'}), 'viewer');
     tt.true(userRecord instanceof Record);
 });
 
