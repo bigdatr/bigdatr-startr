@@ -18,7 +18,7 @@ import routes from '<%= name %>/routes';
 <% if(segment) { %>import tracking from '<%= name %>/tracking';<% } %>
 
 // Needs to be required rather than imported for above fix to work
-require('bigdatr-wowo-client/sass/styles.scss');
+require('<%= name %>/sass/styles.scss');
 
 const appElement = document.getElementById('<%= name %>');
 
