@@ -37,5 +37,8 @@ const signupFields = [
 
 
 export default function SignUpPage(): React.Element<any> {
-    return <SignUpForm fields={signupFields} />;
+    return <SignUpForm
+        fields={signupFields}
+        cognitoGatewayHost={process.env.COGNITO_GATEWAY_HOST}
+    />;
 }
