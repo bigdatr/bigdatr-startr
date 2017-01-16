@@ -119,6 +119,7 @@
       "src/**/*-test.js",
       "src/*/client.js",
       "src/*/tracking.js",
+      "src/*/meta.js",
       "src/*/prerender.js",
       "src/*/routeHandlers.js",
       "scripts/*.js"

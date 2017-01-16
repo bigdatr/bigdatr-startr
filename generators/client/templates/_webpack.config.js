@@ -84,9 +84,17 @@ const development = {
         modulesDirectories: ['src', 'node_modules']
     },
     plugins: [
-        new webpack.DefinePlugin({'process.env': JSON.stringify(Object.assign({}, env, {
-            NODE_ENV: process.env.NODE_ENV || "development"
-        }))}),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(Object.assign({}, env, {
+                NODE_ENV: process.env.NODE_ENV || "development"
+            })),
+            'buildInfo': JSON.stringify({
+                sha: process.env.CIRCLE_SHA1,
+                branch: process.env.CIRCLE_BRANCH,
+                buildNumber: process.env.CIRCLE_BUILD_NUM,
+                previousBuildNumber: process.env.CIRCLE_PREVIOUS_BUILD_NUM
+            })
+        }),
         // Don't run prerender if watching
         (watching ? null : new StaticSiteGeneratorPlugin('__prerender', paths))
     ].filter(plugin => !!plugin),
