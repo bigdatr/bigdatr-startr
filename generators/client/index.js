@@ -58,6 +58,7 @@ module.exports = yeoman.Base.extend({
             copy('src/_routeHandlers.js',   MODULE_PATH + '/routeHandlers.js');
             copy('src/_routes.js',          MODULE_PATH + '/routes.js');
             copy('src/_store.js',           MODULE_PATH + '/store.js');
+            copy('src/_meta.js',            MODULE_PATH + '/meta.js');
             if(this.props.segment) {
                 copy('src/_tracking.js',    MODULE_PATH + '/tracking.js');
             }

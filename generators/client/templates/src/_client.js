@@ -15,6 +15,7 @@ import {browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '<%= name %>/store';
 import routes from '<%= name %>/routes';
+import '<%= name %>/meta';
 <% if(segment) { %>import tracking from '<%= name %>/tracking';<% } %>
 
 // Needs to be required rather than imported for above fix to work
