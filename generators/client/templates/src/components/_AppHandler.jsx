@@ -8,6 +8,7 @@ import {LoginForm} from 'react-cognito-forms';
 export default (props: Object): React.Element<any> => {
     <% if(cognito) { %>return <LoginForm
         location={props.location}
+        cognitoGatewayHost={process.env.COGNITO_GATEWAY_HOST}
         exclude={['/logout', '/signup']}
     >
         <h1><%= name %></h1>

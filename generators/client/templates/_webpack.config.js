@@ -6,7 +6,8 @@ var env = [
     'AWS_IDENTITY_POOL_ID',
     'AWS_USER_POOL_ID',
     'AWS_USER_POOL_ARN',
-    'AWS_USER_POOL_CLIENT_ID',<% } %>
+    'AWS_USER_POOL_CLIENT_ID',
+    'COGNITO_GATEWAY_HOST',<% } %>
     '<%= nameConstant %>_GRAPHQL_SERVER',
     '<%= nameConstant %>_SEGMENT_ID'
 ].reduce(function(rr, ii) {

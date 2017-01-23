@@ -1,6 +1,6 @@
 /* @flow */
 
-<% if(cognito) { %>import {getJwtToken} from 'react-cognito-forms';<% } else { %>import getJwtToken from '<%= name %>/util/getJwtToken.js';<% } %>
+<% if(cognito) { %>import {auth} from 'react-cognito-forms';<% } else { %>import auth from '<%= name %>/util/getJwtToken.js';<% } %>
 
 class HttpError extends Error {
     response: Object;
@@ -38,12 +38,12 @@ function parseJSON(response: Response): Object {
     return response.json();
 }
 
-export default function request(
+export default async function request(
     url: string,
     options?: Object = {},
     ignoreToken: bool = false
 ): Promise<Response> {
-    const token = getJwtToken();
+    const token = await auth.getToken();
 
     if(!token && !ignoreToken) {
         return Promise.reject(new Error('Unauthorized'));
