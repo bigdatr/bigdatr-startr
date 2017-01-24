@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "build-examples": "cd example && yarn install && yarn run build && cd -",
+    "deploy-to-gh-pages": "yarn run build && yarn run build-examples && yarn run docs && node scripts/publish.js",
+    "prepublish": "yarn run build"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.11.0",
+    "git-url-parse": "^6.0.1"
+  }
+}

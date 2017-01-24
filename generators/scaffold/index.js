@@ -6,7 +6,7 @@ function copyTpl(from, to) {
     this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), this.props);
 }
 
-module.exports = yeoman.Base.extend({
+module.exports = yeoman.extend({
     prompting: function () {
         return this.prompt(getPrompts(this)).then(function (props) {
             this.props = props;

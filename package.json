@@ -20,9 +20,12 @@
     "yeoman-generator"
   ],
   "dependencies": {
+    "babel-preset-blueflag": "^0.1.0",
+    "babel-register": "^6.22.0",
     "chalk": "^1.0.0",
     "ejs": "^2.4.2",
-    "yeoman-generator": "^0.23.3",
+    "immutable": "^3.8.1",
+    "yeoman-generator": "^1.0.1",
     "yosay": "^1.0.2"
   },
   "devDependencies": {

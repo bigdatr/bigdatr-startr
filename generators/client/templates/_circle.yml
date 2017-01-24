@@ -5,7 +5,7 @@ machine:
     version: 6.9.2
   environment:<% if(segment) { %>
     BIGDATR_WOWO_CLIENT_SEGMENT_ID:  add_segment_write_key_here # Dev segment account<% } %>
-    YARN_VERSION: 0.18.1
+    YARN_VERSION: 0.19.1
     PATH: "${PATH}:${HOME}/.yarn/bin"
 
 dependencies:

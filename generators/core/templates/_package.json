@@ -1,0 +1,81 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "main": "src/<%= name %>/client.js",
+  "license": "<%= license %>",
+  "author": "<%= author %>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:<%= username %>/<%= name %>.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<%= username %>/<%= name %>/issues"
+  },
+  "scripts": {
+    "ava": "NODE_ENV=test ava",
+    "check-coverage": "NODE_ENV=test nyc check-coverage --branches 100.0  --functions 100.0 --lines 100.0",
+    "docs": "jsdoc -c jsdoc.json",
+    "flow": "flow check",
+    "lint": "eslint src --ext js,jsx",
+    "lint-fix": "eslint src --ext js,jsx --fix",
+    "test": "NODE_ENV=test nyc --report-dir=./coverage ava && yarn run check-coverage",
+    "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run test"
+  },
+  "private": <%= private %>,
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "babel-core": "^6.18.2",
+    "babel-cli": "^6.5.0",
+    "babel-preset-blueflag": "^0.0.1",
+    "dotenv": "^2.0.0",
+    "eslint": "^3.9.1",
+    "eslint-config-blueflag": "^0.4.0",
+    "jsdoc": "^3.4.3",
+    "jsdoc-babel": "^0.2.1",
+    "jsdonk": "^0.2.1",
+    "nyc": "^10.0.0",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.6"
+  },
+  "ava": {
+    "require": [
+      "./pretest",
+      "babel-register"
+    ],
+    "babel": {
+      "presets": [
+        "blueflag"
+      ],
+      "plugins": [
+        "istanbul"
+      ],
+      "sourceMaps": "inline"
+    },
+    "files": [
+      "src/**/*-test.js"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "sourceMap": false,
+    "instrument": false,
+    "include": [
+      "src/**"
+    ],
+    "exclude": [
+      "src/**/*-test.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  }
+}

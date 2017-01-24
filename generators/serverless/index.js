@@ -6,7 +6,7 @@ function copyTpl(from, to) {
     this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), this.props);
 }
 
-module.exports = yeoman.Base.extend({
+module.exports = yeoman.extend({
     init: function() {
         this.appname = this.appname.replace(/\s+/g, '-');
     },
