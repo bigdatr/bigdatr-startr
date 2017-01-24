@@ -31,7 +31,7 @@ module.exports = yeoman.extend({
             copy('_eslintrc',           '.eslintrc');
             copy('_flowconfig',         '.flowconfig');
             copy('_gitignore',          '.gitignore');
-            copy('_jsdoc-config.json',  'jsdoc-config.json');
+            copy('_jsdoc.json',         'jsdoc.json');
             copy('_package.json',       'basePackage.json');
             copy('_pretest.js',         'pretest.js');
             copy('_README.md',          'README.md');

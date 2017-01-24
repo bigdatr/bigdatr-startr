@@ -15,7 +15,7 @@
   "scripts": {
     "ava": "NODE_ENV=test ava",
     "check-coverage": "NODE_ENV=test nyc check-coverage --branches 100.0  --functions 100.0 --lines 100.0",
-    "docs": "jsdoc -c jsdoc-config.json",
+    "docs": "jsdoc -c jsdoc.json",
     "flow": "flow check",
     "lint": "eslint src --ext js,jsx",
     "lint-fix": "eslint src --ext js,jsx --fix",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "ava": "^0.17.0",
     "babel-core": "^6.18.2",
+    "babel-cli": "^6.5.0",
     "babel-preset-blueflag": "^0.0.1",
     "dotenv": "^2.0.0",
     "eslint": "^3.9.1",
