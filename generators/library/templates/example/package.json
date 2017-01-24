@@ -8,8 +8,8 @@
     "build": "rm -rf ./dist/* && NODE_ENV=production webpack",
     "build-dev": "rm -rf ./dist/* && NODE_ENV=development webpack",
     "watch": "NODE_ENV=development webpack-dev-server --inline --hot",
-    "lint": "eslint src/**/*.jsx src/**/*.js",
-    "lint-fix": "eslint src/**/*.jsx src/**/*.js --fix"
+    "lint": "eslint src --ext js,jsx",
+    "lint-fix": "eslint src --ext js,jsx --fix"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
