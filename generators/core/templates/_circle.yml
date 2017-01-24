@@ -1,0 +1,25 @@
+machine:
+  pre:
+    - mkdir ~/.yarn-cache
+  node:
+    version: 6.9.2
+    YARN_VERSION: 0.18.1
+    PATH: "${PATH}:${HOME}/.yarn/bin"
+
+dependencies:
+  pre:
+    - gem install s3_website --version 3.0.0
+    - gem install configure-s3-website --version 2.0.0
+    - |
+      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      fi
+  cache_directories:
+    - ~/.yarn
+    - ~/.yarn-cache
+  override:
+    - yarn install --no-progress
+    - node node_modules/node-sass/scripts/install.js # Force node sass to build vendor file to avoid this issue: https://github.com/sass/node-sass/issues/1579
+test:
+  override:
+    - yarn run test-all

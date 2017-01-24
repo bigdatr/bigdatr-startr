@@ -1,0 +1,13 @@
+dist
+.env
+.DS_STORE
+.DS_Store
+node_modules
+.nyc_output
+docs
+coverage
+tmp.config.json
+s3_website.yml
+
+**/.idea/workspace.xml
+**/.idea/tasks.xml
