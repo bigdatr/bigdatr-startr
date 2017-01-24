@@ -11,7 +11,6 @@ module.exports = yeoman.extend({
         return this
             .prompt(getPrompts(this))
     },
-
     writing: {
         app() {
             var copy = copyTpl.bind(this);

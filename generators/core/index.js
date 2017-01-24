@@ -21,7 +21,7 @@ module.exports = yeoman.extend({
             })
     },
 
-    writing: {
+    configuring: {
         app() {
             var copy = copyTpl.bind(this);
 
@@ -36,9 +36,9 @@ module.exports = yeoman.extend({
             copy('_pretest.js',         'pretest.js');
             copy('_README.md',          'README.md');
             copy('decls/_gitkeep',      'decls/.gitkeep');
-        }
+        },
     },
-    conflicts() {
+    install() {
         // Merge the two packages together. This requires some ordering
         // otherwise the package just looks bonkers.
         const pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
@@ -72,9 +72,8 @@ module.exports = yeoman.extend({
 
         this.fs.writeJSON(this.destinationPath('package.json'), newPackage.toJS());
         this.fs.delete(this.destinationPath('basePackage.json'));
-    },
 
-    install() {
+
         this.yarnInstall()
     }
 });
