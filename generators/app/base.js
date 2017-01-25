@@ -37,14 +37,14 @@ module.exports = class extends Generator {
                     message: 'Choose a generator',
                     choices: Object
                         .keys(this.env.store._meta)
-                        .filter(ii => ii.indexOf(':app') === -1 && ii.indexOf(':core') === -1)
+                        .filter(ii => ii.indexOf(':app') === -1 && ii.indexOf(':app-core') === -1)
                         .map(ii => ii.split(':')[1])
                 }])
         }
 
         return prompt
             .then(prompt => {
-                this.composeWith(require.resolve('../core'));
+                this.composeWith(require.resolve('../app-core'));
                 this.composeWith(require.resolve('../' + prompt.generator));
             })
     }
