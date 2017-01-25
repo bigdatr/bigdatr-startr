@@ -2,9 +2,6 @@
     "presets": [
         "blueflag"
     ],
-    "plugins": [
-        "transform-class-properties"
-    ],
     "env": {
         "development": {
             "plugins": [

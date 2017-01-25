@@ -1,8 +1,8 @@
 'use strict';
-import {fromJS, List, Iterable, OrderedMap} from 'immutable';
-var yeoman = require('yeoman-generator');
-var getPrompts = require('./constants/prompts');
 
+import {fromJS, List, Iterable, OrderedMap} from 'immutable';
+import yeoman from 'yeoman-generator';
+import getPrompts from './constants/prompts';
 
 function copyTpl(from, to) {
     this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), this.config.getAll().promptValues);
@@ -15,7 +15,7 @@ module.exports = yeoman.extend({
             .then(prompt => {
                 this.config.set({
                     promptValues: Object.assign({}, this.config.getAll().promptValues, {
-                        nameConstant: prompt.name.replace(/\W/,"_").toUpperCase()
+                        nameConstant: prompt.name.replace(/\W/g,"_").toUpperCase()
                     })
                 });
             })
