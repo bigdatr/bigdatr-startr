@@ -27,7 +27,7 @@
     "ava": "^0.17.0",
     "babel-core": "^6.18.2",
     "babel-cli": "^6.5.0",
-    "babel-preset-blueflag": "^0.0.1",
+    "babel-preset-blueflag": "^0.2.1",
     "dotenv": "^2.0.0",
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.4.0",
