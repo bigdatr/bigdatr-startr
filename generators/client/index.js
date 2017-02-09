@@ -15,7 +15,7 @@ module.exports = yeoman.extend({
             var copy = copyTpl.bind(this);
             copy('circle.yml');
             copy('.env');
-            copy('.gitignore', '_gitignore');
+            copy('_gitignore', '.gitignore');
             copy('package.json');
             copy('s3_website-template.yml');
             copy('webpack.config.js');
