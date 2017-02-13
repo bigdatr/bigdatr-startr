@@ -1,4 +1,5 @@
 {
+  "main": "lib/index.js",
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib  --copy-files",
     "prepublish": "yarn run build"
