@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Text($name: 'Text') {
+    .#{$name} {
+        @content;
+    }
+}

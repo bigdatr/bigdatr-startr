@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Label($name: 'Label') {
+    .#{$name} {
+        @content;
+    }
+}

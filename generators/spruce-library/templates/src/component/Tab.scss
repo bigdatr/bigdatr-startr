@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Tab($name: 'Tab') {
+    .#{$name} {
+        @content;
+    }
+}

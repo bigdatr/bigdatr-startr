@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Modal($name: 'Modal') {
+    .#{$name} {
+        @content;
+    }
+}

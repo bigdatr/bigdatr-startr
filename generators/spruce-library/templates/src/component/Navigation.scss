@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Navigation($name: 'Navigation') {
+    .#{$name} {
+        @content;
+    }
+}

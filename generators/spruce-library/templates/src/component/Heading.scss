@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Heading($name: 'Heading') {
+    .#{$name} {
+        @content;
+    }
+}

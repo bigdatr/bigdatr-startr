@@ -1,0 +1,53 @@
+html {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: grey(40);
+    font-family: font('copy');
+    font-weight: 300;
+    height: 100%;
+    line-height: 1.5;
+    overflow-x: hidden;
+    text-rendering: optimizelegibility;
+
+    &[aria-hidden='true'] {
+        overflow: hidden;
+    }
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+p {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+em {
+    font-style: italic;
+    font-weight: inherit;
+    margin-top: 0;
+}
+
+strong {
+    font-weight: 600;
+}
+
+small {
+    font-size: .8em;
+}
+
+button {
+    font-family: inherit;
+}
