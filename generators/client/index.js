@@ -19,6 +19,7 @@ module.exports = yeoman.extend({
             copy('package.json');
             copy('s3_website-template.yml');
             copy('webpack.config.js');
+            copy('_babelrc', '.babelrc');
 
             // Deploy scripts
             copy('scripts/**', 'scripts');
@@ -43,7 +44,14 @@ module.exports = yeoman.extend({
 
             // Use custom copy here - copyTpl does weird stuff with binary files
             this.fs.copy(this.templatePath('src/assets/15.png'), this.destinationPath(MODULE_PATH + '/assets/15.png'));
-
         }
+    },
+    install: function () {
+        const install = this.spawnCommand('yarn', ['install']);
+        install.on('close', (code) => {
+            if(!code) {
+                this.spawnCommand('yarn', ['run', 'build-dev']);
+            }
+        });
     }
 });

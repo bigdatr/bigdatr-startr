@@ -1,0 +1,13 @@
+{
+    "presets": [
+        ["blueflag", {"browser": true, "library": true}]
+    ],
+    "ignore": ["./lib"],
+    "env": {
+        "test": {
+            "plugins": [
+                "istanbul"
+            ]
+        }
+    }
+}
