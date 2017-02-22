@@ -23,6 +23,7 @@ module.exports = yeoman.extend({
             copy('_gitignore', '.gitignore');
             copy('interfaces/**', 'interfaces');
             copy('scripts/**', 'scripts');
+            copy('_babelrc', '.babelrc');
         },
         projectfiles() {
             var copy = copyTpl.bind(this);

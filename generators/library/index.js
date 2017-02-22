@@ -18,8 +18,11 @@ module.exports = yeoman.extend({
             copy('_circle.yml', 'circle.yml');
             copy('src/_index.js', 'src/index.js');
             copy('scripts/_publish.js', 'scripts/publish.js');
+            copy('_babelrc', '.babelrc');
+
 
             if(this.config.get('promptValues').example) {
+                copy('_example-babelrc', 'example/.babelrc');
                 copy('example/**', 'example');
             }
         }
