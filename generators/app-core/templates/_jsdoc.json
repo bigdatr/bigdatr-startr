@@ -22,7 +22,9 @@
     },
     "plugins": [
         "plugins/markdown",
-        "node_modules/jsdoc-babel"
+        "node_modules/jsdoc-babel",
+        "node_modules/jsdonk/lib/plugins/react-tags",
+        "node_modules/jsdoc-react-proptypes/lib/plugin"
     ],
     "babel": {
         "extensions": [
