@@ -36,7 +36,7 @@ const development = {
         modulesDirectories: ['/fake-directory-dont-create-a-directory-here'],
         root: [path.resolve(__dirname, './src'), path.resolve(__dirname, './node_modules')],
         alias: {
-            '<%= name %>-example': path.resolve(__dirname, "../")
+            '<%= name %>': path.resolve(__dirname, "../")
         }
     },
     plugins: [
