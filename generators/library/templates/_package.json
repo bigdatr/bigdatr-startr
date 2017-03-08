@@ -9,5 +9,8 @@
   "devDependencies": {
     "gh-pages": "^0.11.0",
     "git-url-parse": "^6.0.1"
-  }
+  },
+  "files": [
+    "lib"
+  ]
 }
