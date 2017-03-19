@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Pagination($name: 'Pagination') {
+    .#{$name} {
+        @content;
+    }
+}

@@ -1,0 +1,94 @@
+
+// @include bruce-fontface((
+//     ('ProximaNova' './fonts/proximanova-light' 100),
+//     ('ProximaNova' './fonts/proximanova-regular' 300),
+//     ('ProximaNova' './fonts/proximanova-regitalic' 300 italic),
+//     ('ProximaNova' './fonts/proximanova-bold' 600)
+// ));
+
+
+$baseLineHeight: 1.875rem;
+$baseFontSize: 16px;
+
+html {
+    font-size: $baseFontSize;
+}
+
+body {
+    color: color('copy');
+    font-family: font('copy');
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: $baseLineHeight;
+}
+
+
+//
+// Headings
+// These sizes use a vertical rhythm based on the line height,
+// try to maintain that rhythm when changing things.
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: block;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3.4rem;
+    line-height: $baseLineHeight * 2;
+    margin-bottom: $baseLineHeight;
+}
+
+
+h2 {
+    font-size: 2.8rem;
+    line-height: $baseLineHeight * 2;
+    margin-bottom: $baseLineHeight;
+}
+
+h3 {
+    font-size: 2.4rem;
+    line-height: $baseLineHeight * 1.5;
+    margin-bottom: $baseLineHeight / 2;
+}
+
+
+h4 {
+    font-size: 2.1rem;
+    line-height: $baseLineHeight * 1.5;
+    margin-bottom: $baseLineHeight / 2;
+}
+
+
+h5 {
+    font-size: 1.9rem;
+    line-height: $baseLineHeight * 1.5;
+    margin-bottom: $baseLineHeight / 2;
+}
+
+
+h6 {
+    font-size: 1.7rem;
+    line-height: $baseLineHeight * 1.5;
+    margin-bottom: $baseLineHeight / 2;
+}
+
+
+//
+// Body Text
+
+a {
+    color: inherit;
+
+    &:visited {
+        color: currentColor;
+    }
+}
+
+
+

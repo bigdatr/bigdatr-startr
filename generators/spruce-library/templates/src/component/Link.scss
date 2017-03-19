@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Link($name: 'Link') {
+    .#{$name} {
+        @content;
+    }
+}

@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>Dropdown($name: 'Dropdown') {
+    .#{$name} {
+        @content;
+    }
+}

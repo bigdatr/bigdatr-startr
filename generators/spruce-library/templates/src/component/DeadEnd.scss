@@ -1,0 +1,5 @@
+@mixin <%= sprucePrefix %>DeadEnd($name: 'DeadEnd') {
+    .#{$name} {
+        @content;
+    }
+}
