@@ -16,6 +16,7 @@ module.exports = yeoman.extend({
             var copy = copyTpl.bind(this);
             copy('_package.json', 'package.json');
             copy('_circle.yml', 'circle.yml');
+            copy('.sass-lint.yml');
             copy('src/**', 'src');
         }
     }

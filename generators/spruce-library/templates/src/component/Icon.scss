@@ -1,5 +1,14 @@
 @mixin <%= sprucePrefix %>Icon($name: 'Icon') {
     .#{$name} {
+        fill: currentColor;
+        height: 1em;
+        overflow: visible;
+        position: relative;
+        top: .166666667rem;
+        transform: rotate(0deg) rotateX(0deg);
+        transition: transform 320ms;
+        width: 1em;
+
         @content;
     }
 }
