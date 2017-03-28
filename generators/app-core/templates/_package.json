@@ -35,7 +35,8 @@
     "eslint-config-blueflag": "^0.4.0",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.2.1",
-    "jsdonk": "^0.2.1",
+    "jsdoc-react-proptypes": "^1.0.1",
+    "jsdonk": "0.4.12",
     "nyc": "^10.0.0",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.6"
