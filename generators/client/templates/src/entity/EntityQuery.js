@@ -1,7 +1,7 @@
 /* @flow */
 
 import {createAction} from 'redux-actions';
-import {createEntityQuery} from 'redux-blueflag';
+import {createEntityQuery} from 'enty';
 import request from '<%= name %>/util/request';
 
 const ENTITY_FETCH = 'ENTITY_FETCH';

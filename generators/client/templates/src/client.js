@@ -10,24 +10,19 @@ if(process.env.NODE_ENV === 'development') {
 import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router} from 'react-router';
-import {browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '<%= name %>/store';
-import routes from '<%= name %>/routes';
+import AppHandler from '<%= name %>/components/AppHandler';
 import '<%= name %>/meta';
 <% if(segment) { %>import tracking from '<%= name %>/tracking';<% } %>
 
 // Needs to be required rather than imported for above fix to work
 require('<%= name %>/sass/styles.scss');
 
-const appElement = document.getElementById('<%= name %>');
-
-ReactDOM.render((
-    <Provider store={store}>
-        <Router history={browserHistory} routes={routes}/>
-    </Provider>
-), appElement);
+ReactDOM.render(
+    <Provider store={store}><AppHandler/></Provider>,
+    document.getElementById('<%= name %>')
+);
 
 <% if(segment) { %>
 // Set up tracking

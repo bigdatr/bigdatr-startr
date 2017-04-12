@@ -24,22 +24,22 @@
   },
   "private": <%= private %>,
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "0.19.1",
     "babel-core": "^6.23.0",
     "babel-register": "^6.23.0",
     "babel-cli": "^6.23.0",
     "babel-preset-blueflag": "^0.3.0",
-    "babel-plugin-istanbul": "^3.0.0",
-    "dotenv": "^2.0.0",
+    "babel-plugin-istanbul": "4.1.1",
+    "dotenv": "4.0.0",
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.4.0",
     "jsdoc": "^3.4.3",
-    "jsdoc-babel": "^0.2.1",
+    "jsdoc-babel": "^0.3.0",
     "jsdoc-react-proptypes": "^1.0.1",
-    "jsdonk": "0.4.12",
+    "jsdonk": "0.4.18",
     "nyc": "^10.0.0",
     "proxyquire": "^1.7.10",
-    "sinon": "^1.17.6"
+    "sinon": "^2.1.0"
   },
   "ava": {
     "require": [
@@ -67,7 +67,8 @@
       "src/**"
     ],
     "exclude": [
-      "src/**/*-test.js"
+      "src/**/*-test.js",
+      "dist"
     ],
     "reporter": [
       "lcov",
