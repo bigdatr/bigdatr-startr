@@ -1,8 +1,8 @@
 /* @flow */
 
-import {Schema} from 'redux-blueflag';
+import {schema} from 'normalizr';
 
-var ViewerSchema = new Schema('viewer', {idAttribute: 'username'});
+var ViewerSchema = new schema.Entity('viewer', {}, {idAttribute: 'username'});
 
 const EntitySchema = {
     viewer: ViewerSchema
