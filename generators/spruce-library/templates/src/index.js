@@ -1,32 +1,9 @@
-export {default as Animation} from './component/Animation';
-export {default as Badge} from './component/Badge';
-export {default as Box} from './component/Box';
-export {default as Breadcrumbs} from './component/Breadcrumbs';
-export {default as Checkbox} from './component/Checkbox';
-export {default as Choice} from './component/Choice';
-export {default as Column} from './component/Column';
-export {default as ColumnSet} from './component/ColumnSet';
-export {default as DayPicker} from './component/DayPicker';
-export {default as DeadEnd} from './component/DeadEnd';
-export {default as Dropdown} from './component/Dropdown';
-export {default as Grid} from './component/Grid';
-export {default as Heading} from './component/Heading';
-export {default as Icon} from './component/Icon';
-export {default as InputRow} from './component/InputRow';
-export {default as Label} from './component/Label';
-export {default as Link} from './component/Link';
-export {default as List} from './component/List';
-export {default as Loader} from './component/Loader';
-export {default as Media} from './component/Media';
-export {default as Modal} from './component/Modal';
-export {default as Navigation} from './component/Navigation';
-export {default as Pagination} from './component/Pagination';
-export {default as ProgressBar} from './component/ProgressBar';
-export {default as Select} from './component/Select';
-export {default as Tab} from './component/Tab';
-export {default as TabSet} from './component/TabSet';
-export {default as Table} from './component/Table';
-export {default as Terminal} from './component/Terminal';
-export {default as Text} from './component/Text';
+//@flow
 
-export * from './icon/Icon';
+import goose from 'goose-css';
+import * as icons from './icon/Icon';
+
+module.exports = {
+    ...goose,
+    ...icons
+};
