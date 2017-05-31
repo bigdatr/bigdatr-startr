@@ -30,7 +30,6 @@
     "babel-cli": "^6.23.0",
     "babel-preset-blueflag": "^0.3.0",
     "babel-plugin-istanbul": "4.1.1",
-    "dotenv": "4.0.0",
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.4.0",
     "jsdoc": "^3.4.3",
