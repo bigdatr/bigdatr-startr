@@ -1,6 +1,8 @@
 'use strict';
 var chalk = require('chalk');
 var Generator = require('yeoman-generator');
+var pkg = require('../../package.json');
+
 module.exports = class extends Generator {
     constructor(args, opts) {
         super(args, opts);
@@ -11,6 +13,12 @@ module.exports = class extends Generator {
         });
     }
     initializing() {
+        const version = pkg.version;
+        const spaces = 26 - version.length;
+        const leftSpaces = Math.floor(spaces / 2);
+        const rightSpaces = Math.ceil(spaces / 2);
+        const paddedVersion = new Array(leftSpaces + 1).join(' ') + version + new Array(rightSpaces + 1).join(' ');
+
 
         this.log(chalk.magenta('\n'
             + "                    `:/+++:.                                     \n"
@@ -18,8 +26,8 @@ module.exports = class extends Generator {
             + "    `://///////////++++++++++:-`     .--------------------------.\n"
             + "    /+++++++++++++++++++++++/+++`    |        Welcome to        |\n"
             + "    ++++++++++++++++++++++++:/++:    |      bigdatr startr!     |\n"
-            + "    +++++++++++++//+++++++++++++:    '--------------------------'\n"
-            + "    ++++++++++++/  /++++++++++++:                                \n"
+            + "    +++++++++++++//+++++++++++++:    |"     +paddedVersion+    "|\n"
+            + "    ++++++++++++/  /++++++++++++:    '--------------------------'\n"
             + "    ++++++++++++/  /+++++/--++++:                                \n"
             + "    ++++/``/++++/  /+++++- `++++:                                \n"
             + "    ++++/  /++++/  /+++++- `++++:                                \n"
