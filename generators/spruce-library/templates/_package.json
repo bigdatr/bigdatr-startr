@@ -5,7 +5,7 @@
     "prepublish": "yarn run build"
   },
   "dependencies": {
-    "stampy": "^0.12.0",
+    "stampy": "^0.28.0",
     "goose-css": "^0.1.0"
   }
 }
