@@ -45,14 +45,27 @@ module.exports = class extends Generator {
                     message: 'Choose a generator',
                     choices: Object
                         .keys(this.env.store._meta)
-                        .filter(ii => ii.indexOf(':app') === -1 && ii.indexOf(':app-core') === -1)
+                        .filter(ii => ii.indexOf(':app') === -1
+                                && ii.indexOf(':java-app-core') === -1
+                                && ii.indexOf(':javascript-app-core') === -1
+                        )
                         .map(ii => ii.split(':')[1])
                 }])
         }
 
         return prompt
             .then(prompt => {
-                this.composeWith(require.resolve('../app-core'));
+                const cores = {
+                    'client': 'javascript-app-core',
+                    'full-stack': 'javascript-app-core',
+                    'library': 'javascript-app-core',
+                    'serverless': 'javascript-app-core',
+                    'spruce-library': 'javascript-app-core'
+                };
+                const core = cores[prompt.generator];
+                if(core) {
+                    this.composeWith(require.resolve(`../${core}`));
+                }
                 this.composeWith(require.resolve('../' + prompt.generator));
             })
     }
