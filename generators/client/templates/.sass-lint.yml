@@ -1,0 +1,23 @@
+rules:
+  indentation:
+    - 2
+    - size: 4
+  no-extends:
+    - 2
+  class-name-format:
+    - 0
+  placeholder-name-format:
+    - 0
+  mixin-name-format:
+    - 0
+  variable-name-format:
+    - 0
+  no-color-keywords:
+    - 0
+  pseudo-element:
+    - 0
+  mixins-before-declarations:
+    - 0
+    - exclude:
+      - bruce-breakpoint
+
