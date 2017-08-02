@@ -1,5 +1,5 @@
 # bigdatr startr
-[![generator-bigdatr-startr npm](https://img.shields.io/npm/v/generator-bigdatr-startr.svg?style=flat-square)](https://www.npmjs.com/package/stampy)
+[![generator-bigdatr-startr npm](https://img.shields.io/npm/v/generator-bigdatr-startr.svg?style=flat-square)](https://www.npmjs.com/package/generator-bigdatr-startr)
 
 ## Installation
 
