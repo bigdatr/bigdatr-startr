@@ -1,7 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Wrapper} from 'obtuse';
+
 export default (props) => {
-    return <div>
+    return <Wrapper>
         {props.children}
-    </div>
+    </Wrapper>
 }

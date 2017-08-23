@@ -1,13 +1,20 @@
 import React from 'react';
-import {Route, IndexRoute} from 'react-router';
+import {HashRouter, Switch, Route} from 'react-router-dom';
 
-import AppHandler from 'components/AppHandler';
-import ErrorHandler from 'components/ErrorHandler';
-import ContentsPage from 'components/ContentsPage';
+import AppHandler from 'component/AppHandler';
+import ErrorHandler from 'component/ErrorHandler';
+import HomePage from 'component/HomePage';
 
-const routes = <Route component={AppHandler} path="/">
-    <IndexRoute component={ContentsPage} />
-    <Route path="*" component={ErrorHandler}/>
-</Route>;
+export const routesList = <Switch>
+    <Route exact path="/" component={HomePage} />
+    {/* add routes here e.g. <Route path="/component/Button" component={ButtonExample}/> */}
+    <Route component={ErrorHandler} />
+</Switch>;
 
-export default routes;
+const Routes = <HashRouter>
+    <AppHandler>
+        {routesList}
+    </AppHandler>
+</HashRouter>;
+
+export default Routes;
