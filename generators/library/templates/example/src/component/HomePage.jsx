@@ -3,8 +3,8 @@ import {Box, Text} from 'obtuse';
 import Contents from './Contents';
 
 // example library usage
-import <%= name %> from '<%= name %>';
-<%= name %>();
+import <%= varname %> from '<%= name %>';
+<%= varname %>();
 
 export default (props) => {
     return <Box modifier="padded">
