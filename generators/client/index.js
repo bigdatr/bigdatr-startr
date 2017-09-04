@@ -20,6 +20,7 @@ module.exports = yeoman.extend({
             copy('s3_website-template.yml');
             copy('webpack.config.js');
             copy('_babelrc', '.babelrc');
+            copy('.sass-lint.yml');
 
             // Deploy scripts
             copy('scripts/**', 'scripts');
