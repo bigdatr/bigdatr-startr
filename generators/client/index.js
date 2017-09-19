@@ -13,13 +13,13 @@ module.exports = yeoman.extend({
     writing: {
         app() {
             var copy = copyTpl.bind(this);
-            copy('circle.yml');
             copy('.env');
             copy('_gitignore', '.gitignore');
             copy('package.json');
             copy('s3_website-template.yml');
             copy('webpack.config.js');
             copy('_babelrc', '.babelrc');
+            copy('_circleci/config.yml', '.circleci/config.yml');
 
             // Deploy scripts
             copy('scripts/**', 'scripts');
