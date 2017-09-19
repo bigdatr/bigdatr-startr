@@ -15,7 +15,8 @@ module.exports = yeoman.extend({
             .then(prompt => {
                 this.config.set({
                     promptValues: Object.assign({}, this.config.getAll().promptValues, {
-                        nameConstant: prompt.name.replace(/\W/g,"_").toUpperCase()
+                        nameConstant: prompt.name.replace(/\W/g,"_").toUpperCase(),
+                        nameKebab: prompt.name.replace(/\W/g,"-").toLowerCase()
                     })
                 });
             })
