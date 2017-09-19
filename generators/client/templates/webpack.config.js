@@ -53,7 +53,7 @@ const GRAPHQL_LOADER = {
 };
 
 const FILE_LOADER = {
-    test: /\.png$|\.svg$|\.jpg$|\.gif$|\.ttf$|\.woff$|\.woff2$|\.eot$|\.otf$/,
+    test: /\.png$|\.svg$|\.jpg$|\.gif$|\.ttf$|\.woff$|\.woff2$|\.eot$|\.otf$|\.ico$/,
     loaders: ['file-loader'],
     loader: 'file?name=assets/[hash].[ext]'
 };
