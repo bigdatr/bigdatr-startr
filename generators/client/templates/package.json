@@ -6,7 +6,7 @@
     "watch": "NODE_ENV=development webpack-dev-server --content-base dist/ --inline --hot"
   },
   "dependencies": {
-    "bruce": "^0.12.1",
+    "bruce": "^0.13.0",
     "enty": "^0.28.0",
     "immutable": "^3.8.1",
     "prop-types": "^15.5.7",
