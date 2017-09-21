@@ -1,20 +1,6 @@
 require('dotenv').config({silent: true});
 require('babel-register');
-
-var env = [
-    <% if(cognito) { %>'AWS_REGION',
-    'AWS_IDENTITY_POOL_ID',
-    'AWS_USER_POOL_ID',
-    'AWS_USER_POOL_ARN',
-    'AWS_USER_POOL_CLIENT_ID',
-    'COGNITO_GATEWAY_HOST',<% } %>
-    '<%= nameConstant %>_GRAPHQL_SERVER',
-    '<%= nameConstant %>_SEGMENT_ID'
-].reduce(function(rr, ii) {
-    rr[ii] = process.env[ii];
-    return rr;
-}, {});
-
+var Dotenv = require('dotenv-webpack');
 
 const webpack = require('webpack');
 const path = require('path');
@@ -22,19 +8,11 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 const pkg = require('./package');
-const proxyquire = require('proxyquire').noCallThru();
-const reactRouterToArray = require('react-router-to-array');
 
 // Check if watching so that prerendering can be disabled.
 const watching = process.argv[1] && process.argv[1].indexOf('webpack-dev-server') !== -1;
 
 let paths = ['/'];
-<% if(prerender) { %>if(process.env.NODE_ENV === 'production') {
-    // Stub route handlers, we just need the route paths
-    const routes = proxyquire('./src/<%= name %>/routes', {'./routeHandlers': {}});
-    // Get paths from routes
-    paths = reactRouterToArray(routes);
-}<% } %>
 
 /**
  *
@@ -59,7 +37,7 @@ const GRAPHQL_LOADER = {
 };
 
 const FILE_LOADER = {
-    test: /\.png$|\.svg$|\.jpg$|\.gif$|\.ttf$|\.woff$|\.woff2$|\.eot$|\.otf$/,
+    test: /\.png$|\.svg$|\.jpg$|\.gif$|\.ttf$|\.woff$|\.woff2$|\.eot$|\.otf$|\.ico$/,
     loaders: ['file-loader'],
     loader: 'file?name=assets/[hash].[ext]'
 };
@@ -85,16 +63,16 @@ const development = {
         modulesDirectories: ['src', 'node_modules']
     },
     plugins: [
+        new Dotenv({
+            path: '.env',
+            systemvars: (process.env.NODE_ENV === 'production') ? true : false
+        }),
         new webpack.DefinePlugin({
-            'process.env': JSON.stringify(Object.assign({}, env, {
-                NODE_ENV: process.env.NODE_ENV || "development"
-            })),
-            'buildInfo': JSON.stringify({
-                sha: process.env.CIRCLE_SHA1,
-                branch: process.env.CIRCLE_BRANCH,
-                buildNumber: process.env.CIRCLE_BUILD_NUM,
-                previousBuildNumber: process.env.CIRCLE_PREVIOUS_BUILD_NUM
-            })
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+            'buildInfo.sha': JSON.stringify(process.env.CIRCLE_SHA1),
+            'buildInfo.branch': JSON.stringify(process.env.CIRCLE_BRANCH),
+            'buildInfo.buildNumber': JSON.stringify(process.env.CIRCLE_BUILD_NUM),
+            'buildInfo.previousBuildNumber': JSON.stringify(process.env.CIRCLE_PREVIOUS_BUILD_NUM)
         }),
         // Don't run prerender if watching
         (watching ? null : new StaticSiteGeneratorPlugin('__prerender', paths))

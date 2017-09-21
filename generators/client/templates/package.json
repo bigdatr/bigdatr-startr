@@ -6,14 +6,12 @@
     "watch": "NODE_ENV=development webpack-dev-server --content-base dist/ --inline --hot"
   },
   "dependencies": {
-    "bruce": "^0.12.0",
+    "bruce": "^0.13.0",
     "enty": "^0.28.0",
     "immutable": "^3.8.1",
-    "moment": "^2.15.2",
-    "numeral": "^1.5.3",
     "prop-types": "^15.5.7",
     "react": "^15.5.4",<% if(cognito) { %>
-    "react-cognito-forms": "^0.12.0",
+    "react-cognito-forms": "^0.22.0",
     <% } %>"react-dom": "^15.3.2",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.0",
@@ -21,7 +19,7 @@
     "redux": "^3.6.0",
     "redux-actions": "^2.0.1",
     "redux-thunk": "^2.1.0",
-    "stampy": "^0.28.0",
+    "stampy": "^0.33.0",
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
@@ -29,6 +27,7 @@
     "autoprefixer": "^6.5.2",
     "aws-sdk": "^2.7.17",
     "css-loader": "^0.28.0",
+    "dotenv-webpack": "^1.5.4",
     "enzyme": "^2.5.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "fetch-mock": "^5.6.2",

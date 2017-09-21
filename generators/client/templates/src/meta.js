@@ -1,6 +1,11 @@
 window.app = {
     meta: {
         env: process.env,
-        build: buildInfo
+        build: {
+            sha: buildInfo.sha,
+            branch: buildInfo.branch,
+            buildNumber: buildInfo.buildNumber,
+            previousBuildNumber: buildInfo.previousBuildNumber
+        }
     }
 };

@@ -16,13 +16,6 @@ module.exports = function(props) {
         },
         {
             type: 'confirm',
-            name: 'prerender',
-            message: 'Do you want prerendering? (note that prerendering is not compatible with cognito)',
-            default: false,
-            store: true
-        },
-        {
-            type: 'confirm',
             name: 'segment',
             message: 'Would you like segment tracking?',
             default: true,

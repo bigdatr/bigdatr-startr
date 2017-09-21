@@ -28,6 +28,7 @@
     "babel-core": "^6.23.0",
     "babel-register": "^6.23.0",
     "babel-cli": "^6.23.0",
+    "babel-loader": "v6.4.0",
     "babel-preset-blueflag": "^0.3.0",
     "babel-plugin-istanbul": "4.1.1",
     "dotenv": "4.0.0",

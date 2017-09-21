@@ -1,0 +1,61 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: blueflag/client-build:0.0.2
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+            - example/node_modules
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+      # run tests!
+      - run: yarn test-all
+
+
+  deploy:
+    working_directory: ~/repo
+    docker:
+      - image: blueflag/client-build:0.0.2
+
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo/dist
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      - run: yarn install
+      - run: yarn run build
+      - run: <%= nameConstant %>_AWS_S3_BUCKET_NAME=$<%= nameConstant %>_AWS_S3_BUCKET_NAME node scripts/prepareS3WebsiteYml
+      - run: configure-s3-website --config-file=s3_website.yml --headless --autocreate-cloudfront-dist --verbose
+      - run: s3_website push --force
+      - run: <%= nameConstant %>_AWS_S3_BUCKET_NAME=$<%= nameConstant %>_AWS_S3_BUCKET_NAME node scripts/notifyPrPreview
+      - run: rm s3_website.yml
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: /release\/.*/
